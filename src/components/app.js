@@ -3,7 +3,7 @@ import {Typography, Button, CssBaseline, withStyles} from '@material-ui/core'
 
 const styles = (theme) => ({
   text: {
-    color: 'red',
+    color: 'blue',
     textAlign: 'center'
   }
 });
