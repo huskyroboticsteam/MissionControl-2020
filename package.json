@@ -1,0 +1,93 @@
+{
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "yarn": "1.16.0"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.2.0",
+    "@material-ui/icons": "^4.2.1",
+    "axios": "^0.19.0",
+    "fzero": "^0.2.4",
+    "history": "^4.9.0",
+    "linspace": "^1.0.0",
+    "notistack": "^0.8.8",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^3.0.1",
+    "recompose": "^0.30.0",
+    "redux": "^4.0.4",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "svg-gauge": "^1.0.5"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "prettier": "^1.18.2"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "cypress/globals": true,
+      "es6": true,
+      "jest": true
+    },
+    "extends": [
+      "react-app",
+      "airbnb",
+      "prettier"
+    ],
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "experimentalObjectRestSpread": true,
+        "impliedStrict": true,
+        "jsx": true
+      },
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "jsx-a11y",
+      "import",
+      "markdown",
+      "prettier",
+      "cypress"
+    ],
+    "rules": {
+      "import/prefer-default-export": "off",
+      "no-nested-ternary": "off",
+      "react/jsx-filename-extension": "off",
+      "react/prop-types": "off"
+    }
+  },
+  "name": "uwhl-controls",
+  "private": true,
+  "scripts": {
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "now-build": "react-scripts build",
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom"
+  },
+  "version": "0.1.0"
+}
