@@ -34,7 +34,6 @@ wercker.yml
 .gitattributes
 .editorconfig
 .*ignore
-.eslintrc
 .jshintrc
 .flowconfig
 .documentup.json

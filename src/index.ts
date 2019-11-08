@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import blueGrey from '@material-ui/core/colors/blueGrey';
 import green from '@material-ui/core/colors/green';

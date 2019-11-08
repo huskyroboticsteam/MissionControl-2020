@@ -18,6 +18,10 @@
   "dependencies": {
     "@material-ui/core": "^4.2.0",
     "@material-ui/icons": "^4.2.1",
+    "@types/jest": "^24.0.22",
+    "@types/node": "^12.12.6",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.3",
     "axios": "^0.19.0",
     "fzero": "^0.2.4",
     "history": "^4.9.0",
@@ -33,54 +37,13 @@
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "svg-gauge": "^1.0.5"
+    "svg-gauge": "^1.0.5",
+    "typescript": "^3.7.2"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.2",
     "prettier": "^1.18.2"
   },
-  "eslintConfig": {
-    "env": {
-      "browser": true,
-      "cypress/globals": true,
-      "es6": true,
-      "jest": true
-    },
-    "extends": [
-      "react-app",
-      "airbnb",
-      "prettier"
-    ],
-    "globals": {
-      "Atomics": "readonly",
-      "SharedArrayBuffer": "readonly"
-    },
-    "parser": "babel-eslint",
-    "parserOptions": {
-      "ecmaFeatures": {
-        "experimentalObjectRestSpread": true,
-        "impliedStrict": true,
-        "jsx": true
-      },
-      "ecmaVersion": 2018,
-      "sourceType": "module"
-    },
-    "plugins": [
-      "react",
-      "jsx-a11y",
-      "import",
-      "markdown",
-      "prettier",
-      "cypress"
-    ],
-    "rules": {
-      "import/prefer-default-export": "off",
-      "no-nested-ternary": "off",
-      "react/jsx-filename-extension": "off",
-      "react/prop-types": "off"
-    }
-  },
-  "name": "uwhl-controls",
+  "name": "hrt-controls",
   "private": true,
   "scripts": {
     "build": "react-scripts build",
