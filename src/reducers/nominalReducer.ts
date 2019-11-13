@@ -6,7 +6,7 @@ const initialState = {
   }
 };
 
-const nominalReducer = (state = initialState, action) => {
+const nominalReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case UPDATE_NOMINAL:
       return {

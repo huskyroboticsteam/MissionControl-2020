@@ -6,7 +6,7 @@ import socketMiddleware from "./middleware/socket";
 
 import createReducer from "./reducers";
 
-export default function configureStore(initialState = {}, history) {
+export default function configureStore(initialState = {}, history: any) {
   const middleware = [reduxThunkMiddleware, socketMiddleware];
 
   const enhancers = [applyMiddleware(...middleware)];

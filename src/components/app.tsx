@@ -1,5 +1,5 @@
 import {Typography, Button, CssBaseline, withStyles, Theme} from '@material-ui/core'
-import { Component } from 'react';
+import * as React from 'react'
 
 const styles : any = (theme : Theme) => ({
   text: {
@@ -8,7 +8,13 @@ const styles : any = (theme : Theme) => ({
   }
 });
 
-const App : any = (props : any) => {
+type AppProps = {
+  text: String,
+  alert: (event: any) => void
+  classes: any
+}
+
+const App: React.StatelessComponent<AppProps> = (props) => {
   const {classes} = props
 
   return (

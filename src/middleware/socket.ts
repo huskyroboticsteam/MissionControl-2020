@@ -15,10 +15,10 @@ const NUMFAULTSENSORS = 1;
 const ERRORTOLERANCE = 5 / 100;
 const MAX_UPDATE_TIME = 1500;
 
-let oldTimestamp;
-let timestamp;
+let oldTimestamp : number;
+let timestamp : number;
 
-const checkServerStatus = store => {
+const checkServerStatus = (store: any) => {
   store.dispatch({
     type: UPDATE_SERVERSTATUS,
     payload:
@@ -30,10 +30,10 @@ const checkServerStatus = store => {
 };
 
 const socketMiddleware = (() => {
-  let socket = null;
-  let timer = null;
+  let socket: WebSocket | null;
+  let timer: NodeJS.Timeout | null = null;
 
-  const onMessage = (ws, store) => evt => {
+  const onMessage = (ws: any, store: any) => (evt: any) => {
     // Parse the JSON message received on the websocket
     const updates = JSON.parse(evt.data);
     const updatedTimestamp = updates.timestamp;
@@ -62,7 +62,7 @@ const socketMiddleware = (() => {
       payload: sensorsUpdates
     });
 
-    const sensorsUpdatesNominal = {};
+    const sensorsUpdatesNominal: any = {};
 
     for (const key in updates)
       if (key in nominalsMax && key in nominalsMin) {
@@ -89,7 +89,7 @@ const socketMiddleware = (() => {
       payload: sensorsStatus
     });
   };
-  return store => next => action => {
+  return (store: any) => (next: any) => (action: any) => {
     switch (action.type) {
       // The user wants us to connect
       case OPEN_SOCKET:
