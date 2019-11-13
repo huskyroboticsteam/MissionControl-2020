@@ -6,7 +6,7 @@ const initialState = {
   }
 };
 
-const sensorsReducer = (state = initialState, action) => {
+const sensorsReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case UPDATE_SENSORS:
       return {
