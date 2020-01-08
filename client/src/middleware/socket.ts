@@ -44,13 +44,6 @@ const socketMiddleware = (() => {
       timer = setInterval(() => checkServerStatus(store), MAX_UPDATE_TIME);
     }
 
-    // if ('mode' in updates) {
-    //   store.dispatch({
-    //     type: UPDATE_MODE,
-    //     payload: updates.mode
-    //   });
-    // }
-
     const sensorsUpdates = updates;
 
     for (const key in updates)

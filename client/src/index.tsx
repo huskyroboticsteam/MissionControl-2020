@@ -26,9 +26,7 @@ ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>
       <SnackbarProvider maxSnack={6}>
-        <App text="hi" alert={() => {
-          alert("Test Presed")
-        }}/>
+        <App />
       </SnackbarProvider>
     </MuiThemeProvider>
   </Provider>,

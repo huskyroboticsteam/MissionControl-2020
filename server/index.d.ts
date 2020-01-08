@@ -1,0 +1,3 @@
+interface DataPacket {
+    timestamp: number;
+}
