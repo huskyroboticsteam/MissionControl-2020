@@ -9,5 +9,13 @@ type CameraProps = {
 };
 class CameraComponent extends React.Component<CameraProps> {
     // this displays cameras (subject to change)
+    render() {
+        return (
+            <div>
+                <h1> this is the camera page</h1>
+            </div>
+        )
+    }
 
 };
+export default CameraComponent;

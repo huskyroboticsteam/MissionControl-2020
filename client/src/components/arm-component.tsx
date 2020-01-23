@@ -9,5 +9,14 @@ type ArmProps = {
 }
 class ArmComponent extends React.Component<ArmProps> {
     //this displays arm data
+    render() {
+        return (
+            <div>
+                <h1> this is the arm page</h1>
+            </div>
+        )
+    }
 
 }
+
+export default ArmComponent;

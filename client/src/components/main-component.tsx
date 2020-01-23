@@ -9,7 +9,14 @@ type MainProps = {
 }
 class MainComponent extends React.Component<MainProps> {
 // this is the Main page
-
-
+    render() {
+        return ( 
+            <div>
+                <h1> this is the main page</h1>
+            </div>
+        )
+    }
 }
+
+export default MainComponent;
 

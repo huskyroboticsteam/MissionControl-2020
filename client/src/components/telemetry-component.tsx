@@ -9,5 +9,12 @@ type TelemetryProps = {
 }
 class TelemetryComponent extends React.Component<TelemetryProps> {
     // this displays the telemetry data
-
+    render() {
+        return (
+            <div>
+                <h1>this is the telemetry page</h1>
+            </div>
+        )
+    }
 }
+export default TelemetryComponent;

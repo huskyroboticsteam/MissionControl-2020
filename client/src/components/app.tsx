@@ -3,6 +3,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
+import Navbar from "./navbar";
 
 const styles: any = (theme: Theme) => ({
   rawData: {
@@ -11,24 +12,7 @@ const styles: any = (theme: Theme) => ({
   }
 });
 
-type NavbarProps = {
-  onClickHandler: Function;
-};
-class Navbar extends React.Component<NavbarProps> {
-  render() {
-    return (
-      <div>
-        <ul id ="nav">
-          <li onClick={() => this.props.onClickHandler('main')}><a href="#">Main</a></li>
-          <li onClick={() => this.props.onClickHandler('arm')}><a href="#">Arm</a></li>
-          <li onClick={() => this.props.onClickHandler('science')}><a href="#">Science</a></li>
-          <li><a href="#">Telemetry</a></li>
-          <li><a href="#">Camera</a></li>
-        </ul>
-      </div>
-    )  
-  }
-}
+
 
 type AppProps = {
   classes: any;

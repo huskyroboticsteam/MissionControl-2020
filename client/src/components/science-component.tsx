@@ -9,5 +9,12 @@ type ScienceProps = {
 }
 class ScienceComponent extends React.Component<ScienceProps> {
     // this displays science data
-
+    render() {
+        return (
+            <div>
+                <h1>this is the science page</h1>
+            </div>
+        )
+    }
 }
+export default ScienceComponent;
