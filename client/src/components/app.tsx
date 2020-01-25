@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 import Navbar from "./navbar";
+import StopButton from "./stop-button";
 
 const styles: any = (theme: Theme) => ({
   rawData: {
@@ -34,13 +35,14 @@ class App extends React.Component<AppProps> {
   render() {
     const { classes, nominal, sensors } = this.props;
     return (
-      <div>
-        <Navbar onClickHandler={this.navbarClicked}/>
-        <CssBaseline />
+      <div>             
+        <StopButton/>
+        <CssBaseline/>
         <Typography className={classes.rawData}>
           {JSON.stringify(nominal)}
           {JSON.stringify(sensors)}
         </Typography>
+        <Navbar onClickHandler={this.navbarClicked}/>  
       </div>
     );
   }
