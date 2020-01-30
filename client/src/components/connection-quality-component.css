@@ -1,0 +1,10 @@
+.connectionContainer {
+    width: 150px;
+    height: 15px;
+    display: flex;
+    flex-direction: row;
+    background: #eeeeee;
+    padding: 5px;
+    margin: 10px;
+    justify-content: space-between;
+}

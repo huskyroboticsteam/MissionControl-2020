@@ -16,6 +16,7 @@ import {
 } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import './app.css';
+import ConnectionQualityComponent from "./connection-quality-component";
 
 const backTheme = createMuiTheme({
   palette: {
@@ -57,6 +58,7 @@ class App extends React.Component<AppProps> {
         <Typography className={classes.rawData}>
           {JSON.stringify(nominal)}
           {JSON.stringify(sensors)}
+        <ConnectionQualityComponent quality={100}/>
         </Typography>
           <Route path ="/main-component" component = {MainComponent}/>
           <Route path ="/arm-component" component = {ArmComponent}/>
