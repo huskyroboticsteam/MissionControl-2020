@@ -5,6 +5,25 @@ import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 import Navbar from "./navbar";
 import StopButton from "./stop-button";
+import MainComponent from "./main-component";
+import ArmComponent from "./arm-component";
+import CameraComponent from "./camera-component";
+import TelemetryComponent from "./telemetry-component";
+import ScienceComponent from "./science-component";
+import {
+  Route,
+  HashRouter
+} from "react-router-dom";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import './app.css';
+
+const backTheme = createMuiTheme({
+  palette: {
+    background: {
+      default: "#b19cd9"
+    }
+  }
+});
 
 const styles: any = (theme: Theme) => ({
   rawData: {
@@ -12,8 +31,6 @@ const styles: any = (theme: Theme) => ({
     textAlign: "center"
   }
 });
-
-
 
 type AppProps = {
   classes: any;
@@ -28,13 +45,12 @@ class App extends React.Component<AppProps> {
     openSocket();
   }
 
-  navbarClicked(navbarStr: string) {
-    console.log(navbarStr);
-  }
 
   render() {
     const { classes, nominal, sensors } = this.props;
     return (
+      <MuiThemeProvider theme = {backTheme}>
+      <HashRouter>
       <div>             
         <StopButton/>
         <CssBaseline/>
@@ -42,8 +58,17 @@ class App extends React.Component<AppProps> {
           {JSON.stringify(nominal)}
           {JSON.stringify(sensors)}
         </Typography>
-        <Navbar onClickHandler={this.navbarClicked}/>  
-      </div>
+          <Route path ="/main-component" component = {MainComponent}/>
+          <Route path ="/arm-component" component = {ArmComponent}/>
+          <Route path ="/science-component" component = {ScienceComponent}/>
+          <Route path ="/telemetry-component" component = {TelemetryComponent}/>
+          <Route path ="/camera-component" component = {CameraComponent}/>
+          <div style={{position: "fixed", bottom:"0", width:"100%"}}>
+            <Navbar/>  
+          </div>
+        </div>
+      </HashRouter>
+      </MuiThemeProvider>
     );
   }
 }

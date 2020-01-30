@@ -1,55 +1,59 @@
 import { Typography, CssBaseline, withStyles, Theme, makeStyles, Grid } from "@material-ui/core";
-import React from "react";
-import {
-  Route,
-  HashRouter
-} from "react-router-dom";
-import Button from "@material-ui/core/Button";
-import ButtonGroup from  '@material-ui/core/ButtonGroup';
-import MainComponent from "./main-component";
-import ArmComponent from "./arm-component";
-import CameraComponent from "./camera-component";
-import TelemetryComponent from "./telemetry-component";
-import ScienceComponent from "./science-component";
+import React, { Component } from "react";
 import "./navbar.css";
-import Box from "@material-ui/core/Box";
-type NavbarProps = {
-    onClickHandler: Function;
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import HomeIcon from '@material-ui/icons/Home';
+import OfflineBoltIcon from '@material-ui/icons/OfflineBolt';
+import CameraIcon from '@material-ui/icons/Camera';
+import EcoIcon from '@material-ui/icons/Eco';
+import PhoneIcon from '@material-ui/icons/Phone';
+import { Link, withRouter } from 'react-router-dom';
+
+const styles = {
+  stickToBottom: {
+    width: '100%',
+    position: 'fixed',
+    bottom: 0,
+  },
 };
-  class Navbar extends React.Component<NavbarProps> {
-    render() {
-      return (
-        <HashRouter>
-          <div>
-          <div className ="content">
-          <Box display = "flex"  
-          alignItems= "center" justifyContent ="center" m={1} p={1}>
-            <Box p={1}>
-          <Route path ="/main-component" component = {MainComponent}/>
-          <Route path ="/arm-component" component = {ArmComponent}/>
-          <Route path ="/science-component" component = {ScienceComponent}/>
-          <Route path ="/telemetry-component" component = {TelemetryComponent}/>
-          <Route path ="/camera-component" component = {CameraComponent}/>
-          </Box>
-          </Box>
-        </div>
-        <div className="navbar">
-          <Box display = "flex"  
-          alignItems= "center" justifyContent ="center" m={1} p={1}>
-            <Box p={1}>
-              <ButtonGroup variant="contained" aria-label="contained primary button group">
-              <Button href="/#/main-component" color="primary">Main </Button>
-              <Button href="/#/arm-component" color="primary">Arm </Button>
-              <Button href="/#/science-component" color="primary">Science </Button>
-              <Button href="/#/telemetry-component" color="primary">Telemetry </Button>
-              <Button href="/#/camera-component" color="primary">Camera </Button>
-              </ButtonGroup> 
-            </Box>
-          </Box>
-        </div>
-        </div>
-      </HashRouter>
-      )  
+
+class Navbar extends React.Component {
+  state = {
+    value: 0,
+    pathMap : ['/main-component', 'arm-component', 'science-component', 'telemetry-component', 'camera-component']
+  };
+
+  componentWillReceiveProps(newProps) {
+    const {pathName} = newProps.location;
+    const {pathMap} = this.state;
+    const value = pathMap.indexOf(pathName);
+
+    if (value > -1) {
+      this.setState({value});
     }
   }
-  export default Navbar;
+
+  handleChange = (event, value) => {
+    this.setState({value});
+  };
+
+    render() {
+      const {value, pathMap} = this.state;
+      return (
+      <BottomNavigation
+        value={value}
+        onChange = {this.handleChange}
+        showLabels
+        className={"navbar"}
+      >
+        <BottomNavigationAction label="Main" icon={<HomeIcon />} component={Link} to={pathMap[0]}/>
+        <BottomNavigationAction label="Arm" icon={<PhoneIcon />} component={Link} to={pathMap[1]}/>
+        <BottomNavigationAction label="Science" icon={<EcoIcon />} component={Link} to={pathMap[2]}/>
+        <BottomNavigationAction label="Telemetry" icon={<OfflineBoltIcon />} component={Link} to={pathMap[3]}/>
+        <BottomNavigationAction label="Camera" icon={<CameraIcon />} component={Link} to={pathMap[4]}/>
+      </BottomNavigation>
+    );
+  }
+}
+export default withRouter(Navbar);
