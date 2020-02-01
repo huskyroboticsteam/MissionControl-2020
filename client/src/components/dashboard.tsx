@@ -6,24 +6,22 @@ import ConnectionQualityComponent from "./connection-quality-component";
 import "./dashboard.css";
 
 
+import DataPacket from "../types";
 type DashProps = {
-
+    sensors: DataPacket;
 }
 // this is the dash
 // clean up style code later
 class DashComponent extends React.Component<DashProps> {
     render() {
-        return (
-            <div style= {{background: "lightGreen", height: "200px", width: "100%"}}> 
-            <div className = "dashStyles">
-                <div style= {{position: "fixed", top: 0, left: 0}}>
-                    <StopButton/>    
-                </div>
+        return ( 
+            <div style={{ background:"lightGreen", height:"250px"}}>
+                <h1> this is the dash</h1>
+                <StopButton/> 
                 <div style={{position: "fixed", top: 0, right: 0}}>
                         <ConnectionQualityComponent quality={100}/>  
                 </div>  
                 <ReactSpeedometer/>
-            </div>
             </div>
         )
     }

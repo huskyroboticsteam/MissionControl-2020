@@ -18,7 +18,7 @@ import {
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import './app.css';
 import ConnectionQualityComponent from "./connection-quality-component";
-
+import DataPacket from '../types';
 const backTheme = createMuiTheme({
   palette: {
     background: {
@@ -36,8 +36,8 @@ const styles: any = (theme: Theme) => ({
 
 type AppProps = {
   classes: any;
-  nominal: any;
-  sensors: any;
+  nominal: DataPacket;
+  sensors: DataPacket;
   openSocket: Function;
 };
 
@@ -55,7 +55,9 @@ class App extends React.Component<AppProps> {
       <HashRouter>         
       <div style={{top: "0"}}>    
         <CssBaseline/>
-        <DashComponent/>
+        <div style= {{marginTop: "0px", paddingTop: "0px", top:"0px", width: "100%"}}>
+          <DashComponent sensors={sensors}/>
+        </div>
         <Typography className={classes.rawData}>
           {JSON.stringify(nominal)}
           {JSON.stringify(sensors)}
