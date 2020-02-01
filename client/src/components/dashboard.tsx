@@ -15,13 +15,14 @@ type DashProps = {
 class DashComponent extends React.Component<DashProps> {
     render() {
         return ( 
-            <div style={{ background:"lightGreen", height:"250px"}}>
-                <h1> this is the dash</h1>
+            <div style={{ background:"lightGreen", height:"200px"}}>
                 <StopButton/> 
                 <div style={{position: "fixed", top: 0, right: 0}}>
                         <ConnectionQualityComponent quality={100}/>  
-                </div>  
+                </div> 
+                <div className = "dashStyles">
                 <ReactSpeedometer/>
+                </div> 
             </div>
         )
     }
