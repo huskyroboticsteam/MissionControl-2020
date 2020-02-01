@@ -52,13 +52,10 @@ class App extends React.Component<AppProps> {
     const { classes, nominal, sensors } = this.props;
     return (
       <MuiThemeProvider theme = {backTheme}>
-      <HashRouter>
-      <div style={{top: "0"}}>             
-
+      <HashRouter>         
+      <div style={{top: "0"}}>    
         <CssBaseline/>
-        <div style= {{marginTop: "0px", paddingTop: "0px", top:"0px", width: "100%"}}>
-          <DashComponent/>
-        </div>
+        <DashComponent/>
         <Typography className={classes.rawData}>
           {JSON.stringify(nominal)}
           {JSON.stringify(sensors)}
@@ -75,8 +72,8 @@ class App extends React.Component<AppProps> {
         </div>
       </HashRouter>
       </MuiThemeProvider>
-    );
-  }
+    )
+    }
 }
 
 const mapStateToProps = (state: any) => {
