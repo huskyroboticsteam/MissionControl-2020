@@ -10,6 +10,7 @@ import ArmComponent from "./arm-component";
 import CameraComponent from "./camera-component";
 import TelemetryComponent from "./telemetry-component";
 import ScienceComponent from "./science-component";
+import DashComponent from "./dashboard";
 import {
   Route,
   HashRouter
@@ -52,13 +53,16 @@ class App extends React.Component<AppProps> {
     return (
       <MuiThemeProvider theme = {backTheme}>
       <HashRouter>
-      <div>             
-        <StopButton/>
+      <div style={{top: "0"}}>             
+
         <CssBaseline/>
+        <div style= {{marginTop: "0px", paddingTop: "0px", top:"0px", width: "100%"}}>
+          <DashComponent/>
+        </div>
         <Typography className={classes.rawData}>
           {JSON.stringify(nominal)}
           {JSON.stringify(sensors)}
-        <ConnectionQualityComponent quality={100}/>
+        
         </Typography>
           <Route path ="/main-component" component = {MainComponent}/>
           <Route path ="/arm-component" component = {ArmComponent}/>
