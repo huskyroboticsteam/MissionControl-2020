@@ -1,16 +1,18 @@
 import { Typography, CssBaseline, withStyles, Theme } from "@material-ui/core";
 import React, { Component } from "react";
-import Button from '@material-ui/core/Button';
 import ReactSpeedometer from "react-d3-speedometer"
 import StopButton from "./stop-button";
 import ConnectionQualityComponent from "./connection-quality-component";
+import "./dashboard.css";
 
 
+import DataPacket from "../types";
 type DashProps = {
-
+    sensors: DataPacket;
 }
-class DashComponent extends React.Component<DashProps> {
 // this is the dash
+// clean up style code later
+class DashComponent extends React.Component<DashProps> {
     render() {
         return ( 
             <div style={{ background:"#959298", height:"250px"}}>
@@ -41,5 +43,6 @@ class DashComponent extends React.Component<DashProps> {
         )
     }
 }
+
 
 export default DashComponent;

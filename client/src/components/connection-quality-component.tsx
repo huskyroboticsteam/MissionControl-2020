@@ -1,6 +1,5 @@
 
 import * as React from "react";
-import { MuiThemeProvider } from "@material-ui/core/styles";
 import "./connection-quality-component.css";
 
 type ConnectionProps = {
@@ -17,7 +16,7 @@ var connectionBarContainer = {
   borderStyle: "solid",
   borderColor: "black",
   borderWidth: "thin",
-  margin: 10,
+  margin: 0,
   justifyContent: "space-between"
 } as React.CSSProperties;
 
