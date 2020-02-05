@@ -22,7 +22,7 @@ import ConnectionQualityComponent from "./connection-quality-component";
 const backTheme = createMuiTheme({
   palette: {
     background: {
-      default: "#b19cd9"
+      default: "#D8D6D6"
     }
   }
 });
@@ -54,7 +54,6 @@ class App extends React.Component<AppProps> {
       <MuiThemeProvider theme = {backTheme}>
       <HashRouter>
       <div style={{top: "0"}}>             
-
         <CssBaseline/>
         <div style= {{marginTop: "0px", paddingTop: "0px", top:"0px", width: "100%"}}>
           <DashComponent/>
@@ -62,7 +61,6 @@ class App extends React.Component<AppProps> {
         <Typography className={classes.rawData}>
           {JSON.stringify(nominal)}
           {JSON.stringify(sensors)}
-        
         </Typography>
           <Route path ="/main-component" component = {MainComponent}/>
           <Route path ="/arm-component" component = {ArmComponent}/>
