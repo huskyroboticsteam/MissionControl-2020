@@ -90,12 +90,6 @@ const mapDispatchToProps = {
 };
 
 //@ts-ignore
-const connectedApp: any = compose(
-  withStyles(styles),
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
-)(App);
+const connectedApp: any = compose(withStyles(styles),connect(mapStateToProps,mapDispatchToProps))(App);
 
 export default connectedApp;
