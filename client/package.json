@@ -42,6 +42,7 @@
     "react-d3-speedometer": "^0.8.0",
     "react-dom": "^16.8.6",
     "react-leaflet": "^2.6.1",
+    "react-linechart": "^1.1.12",
     "react-native": "^0.61.5",
     "react-native-paper": "^3.5.0",
     "react-redux": "^7.1.0",

@@ -4,21 +4,16 @@ import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 import Navbar from "./navbar";
-import StopButton from "./stop-button";
 import MainComponent from "./main-component";
 import ArmComponent from "./arm-component";
 import CameraComponent from "./camera-component";
 import TelemetryComponent from "./telemetry-component";
 import ScienceComponent from "./science-component";
 import DashComponent from "./dashboard";
-import {
-  Route,
-  HashRouter
-} from "react-router-dom";
+import { Route, HashRouter } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import './app.css';
-import ConnectionQualityComponent from "./connection-quality-component";
-import DataPacket from '../types';
+import "./app.css";
+import DataPacket from "../types";
 const backTheme = createMuiTheme({
   palette: {
     background: {
@@ -47,34 +42,40 @@ class App extends React.Component<AppProps> {
     openSocket();
   }
 
-
   render() {
     const { classes, nominal, sensors } = this.props;
     return (
-      <MuiThemeProvider theme = {backTheme}>
-      <HashRouter>         
-      <div style={{top: "0"}}>    
-        <CssBaseline/>
-        <div style= {{marginTop: "0px", paddingTop: "0px", top:"0px", width: "100%"}}>
-          <DashComponent sensors={sensors}/>
-        </div>
-        <Typography className={classes.rawData}>
-          {JSON.stringify(nominal)}
-          {JSON.stringify(sensors)}
-        </Typography>
-          <Route path ="/main-component" component = {MainComponent}/>
-          <Route path ="/arm-component" component = {ArmComponent}/>
-          <Route path ="/science-component" component = {ScienceComponent}/>
-          <Route path ="/telemetry-component" component = {TelemetryComponent}/>
-          <Route path ="/camera-component" component = {CameraComponent}/>
-          <div style={{position: "fixed", bottom:"0", width:"100%"}}>
-            <Navbar/>  
+      <MuiThemeProvider theme={backTheme}>
+        <HashRouter>
+          <div style={{ top: "0" }}>
+            <CssBaseline />
+            <div
+              style={{
+                marginTop: "0px",
+                paddingTop: "0px",
+                top: "0px",
+                width: "100%"
+              }}
+            >
+              <DashComponent sensors={sensors} />
+            </div>
+            <Typography className={classes.rawData}>
+              {JSON.stringify(nominal)}
+              {JSON.stringify(sensors)}
+            </Typography>
+            <Route path="/main-component" component={MainComponent} />
+            <Route path="/arm-component" component={ArmComponent} />
+            <Route path="/science-component" component={ScienceComponent} />
+            <Route path="/telemetry-component" component={TelemetryComponent} />
+            <Route path="/camera-component" component={CameraComponent} />
+            <div style={{ position: "fixed", bottom: "0", width: "100%" }}>
+              <Navbar />
+            </div>
           </div>
-        </div>
-      </HashRouter>
+        </HashRouter>
       </MuiThemeProvider>
-    )
-    }
+    );
+  }
 }
 
 const mapStateToProps = (state: any) => {
@@ -89,7 +90,12 @@ const mapDispatchToProps = {
 };
 
 //@ts-ignore
-const connectedApp: any = compose(withStyles(styles),connect(mapStateToProps,mapDispatchToProps))(App);
+const connectedApp: any = compose(
+  withStyles(styles),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )
+)(App);
 
 export default connectedApp;
-

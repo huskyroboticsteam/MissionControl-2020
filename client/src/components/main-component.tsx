@@ -5,22 +5,17 @@ import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 import MapTest from "./map";
 
-
-
-type MainProps = {
-
-}
+type MainProps = {};
 // figure out what map we will use and how to integrate it
 class MainComponent extends React.Component<MainProps> {
-// this is the Main page
-    render() {
-        return ( 
-            <div>
-                <MapTest/>
-            </div>
-        )
-    }
+  // this is the Main page
+  render() {
+    return (
+      <div>
+        <MapTest />
+      </div>
+    );
+  }
 }
 
 export default MainComponent;
-

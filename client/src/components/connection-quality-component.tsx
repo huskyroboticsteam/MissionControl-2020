@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import "./connection-quality-component.css";
 
@@ -20,7 +19,18 @@ var connectionBarContainer = {
   justifyContent: "space-between"
 } as React.CSSProperties;
 
-var gradient: string[] = ['#FF0000', '#FF3300', '#FF6600', '#FF9900', '#FFCC00', '#FFFF00', '#BBFF00', '#77FF00', '#33FF00', '#00FF00']
+var gradient: string[] = [
+  "#FF0000",
+  "#FF3300",
+  "#FF6600",
+  "#FF9900",
+  "#FFCC00",
+  "#FFFF00",
+  "#BBFF00",
+  "#77FF00",
+  "#33FF00",
+  "#00FF00"
+];
 function connectionBar(bar: number, quality: Number): React.CSSProperties {
   return {
     borderRadius: 2,
@@ -29,7 +39,7 @@ function connectionBar(bar: number, quality: Number): React.CSSProperties {
     borderStyle: "solid",
     borderColor: "black",
     borderWidth: "thin",
-    background: quality >= 10 * bar ? gradient[bar-1] : "lightgrey",
+    background: quality >= 10 * bar ? gradient[bar - 1] : "lightgrey"
   };
 }
 class ConnectionQualityComponent extends React.Component<ConnectionProps> {

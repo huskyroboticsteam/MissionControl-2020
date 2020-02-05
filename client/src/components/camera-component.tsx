@@ -4,18 +4,15 @@ import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 
-type CameraProps = {
-
-};
+type CameraProps = {};
 class CameraComponent extends React.Component<CameraProps> {
-    // this displays cameras (subject to change)
-    render() {
-        return (
-            <div>
-                <h1> this is the camera page</h1>
-            </div>
-        )
-    }
-
-};
+  // this displays multiple photographs (subject to change)
+  render() {
+    return (
+      <div>
+        <h1> this is the camera page</h1>
+      </div>
+    );
+  }
+}
 export default CameraComponent;
