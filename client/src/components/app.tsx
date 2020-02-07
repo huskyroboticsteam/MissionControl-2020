@@ -3,6 +3,24 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
+import Navbar from "./navbar";
+import MainComponent from "./main-component";
+import ArmComponent from "./arm-component";
+import CameraComponent from "./camera-component";
+import TelemetryComponent from "./telemetry-component";
+import ScienceComponent from "./science-component";
+import DashComponent from "./dashboard";
+import { Route, HashRouter } from "react-router-dom";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import "./app.css";
+import DataPacket from "../types";
+const backTheme = createMuiTheme({
+  palette: {
+    background: {
+      default: "#D8D6D6"
+    }
+  }
+});
 
 const styles: any = (theme: Theme) => ({
   rawData: {
@@ -13,8 +31,8 @@ const styles: any = (theme: Theme) => ({
 
 type AppProps = {
   classes: any;
-  nominal: any;
-  sensors: any;
+  nominal: DataPacket;
+  sensors: DataPacket;
   openSocket: Function;
 };
 
@@ -27,13 +45,35 @@ class App extends React.Component<AppProps> {
   render() {
     const { classes, nominal, sensors } = this.props;
     return (
-      <div>
-        <CssBaseline />
-        <Typography className={classes.rawData}>
-          {JSON.stringify(nominal)}
-          {JSON.stringify(sensors)}
-        </Typography>
-      </div>
+      <MuiThemeProvider theme={backTheme}>
+        <HashRouter>
+          <div style={{ top: "0" }}>
+            <CssBaseline />
+            <div
+              style={{
+                marginTop: "0px",
+                paddingTop: "0px",
+                top: "0px",
+                width: "100%"
+              }}
+            >
+              <DashComponent sensors={sensors} />
+            </div>
+            <Typography className={classes.rawData}>
+              {JSON.stringify(nominal)}
+              {JSON.stringify(sensors)}
+            </Typography>
+            <Route path="/main-component" component={MainComponent} />
+            <Route path="/arm-component" component={ArmComponent} />
+            <Route path="/science-component" component={ScienceComponent} />
+            <Route path="/telemetry-component" component={TelemetryComponent} />
+            <Route path="/camera-component" component={CameraComponent} />
+            <div style={{ position: "fixed", bottom: "0", width: "100%" }}>
+              <Navbar />
+            </div>
+          </div>
+        </HashRouter>
+      </MuiThemeProvider>
     );
   }
 }

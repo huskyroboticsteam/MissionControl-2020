@@ -1,0 +1,9 @@
+html,
+#root,
+.maptest,
+#map {
+  margin: 0;
+  padding: 0;
+  height: 30%;
+  width: 30%;
+}
