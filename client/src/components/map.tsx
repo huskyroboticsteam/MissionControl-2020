@@ -4,8 +4,10 @@ import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 // map displayed, add functionality over the next few weeks
 // add ability to automatically sense coordinates
-//west is negative
+// west is negative
 // try to see if we can zoom in more
+// find out how to make this work without internet
+// find out how to display position of rover
 class MapTest extends React.Component {
   state = {
     lat: 47.6498,

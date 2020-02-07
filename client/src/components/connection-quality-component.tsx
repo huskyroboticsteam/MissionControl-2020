@@ -4,7 +4,7 @@ import "./connection-quality-component.css";
 type ConnectionProps = {
   quality: Number;
 };
-var connectionBarContainer = {
+const connectionBarContainer = {
   width: 150,
   height: 15,
   display: "flex",
@@ -19,7 +19,7 @@ var connectionBarContainer = {
   justifyContent: "space-between"
 } as React.CSSProperties;
 
-var gradient: string[] = [
+const gradient: string[] = [
   "#FF0000",
   "#FF3300",
   "#FF6600",
