@@ -29,6 +29,9 @@ class MapTest extends React.Component {
         <TileLayer
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          maxNativeZoom = {19}
+          minZoom = {0}
+          maxZoom = {22}
         />
         <Marker position={position}>
           <Popup>
