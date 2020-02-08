@@ -1,4 +1,7 @@
- html, #root, .maptest, #map {
+html,
+#root,
+.maptest,
+#map {
   margin: 0;
   padding: 0;
   height: 30%;

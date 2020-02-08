@@ -4,17 +4,16 @@ import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 
-type ScienceProps = {
-
-}
+type ScienceProps = {};
 class ScienceComponent extends React.Component<ScienceProps> {
-    // this displays science data
-    render() {
-        return (
-            <div>
-                <h1>this is the science page</h1>
-            </div>
-        )
-    }
+  // this displays science data
+  //copy pasted graph
+  render() {
+    return (
+      <div>
+        <h1>this is science</h1>
+      </div>
+    );
+  }
 }
 export default ScienceComponent;
