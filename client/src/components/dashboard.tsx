@@ -30,7 +30,6 @@ class DashComponent extends React.Component<DashProps> {
                 endColor="blue"
                 />
                 </div>
-               
                 <div style = {{float:"left", background: "#F3F5AD", padding: "15px", margin: "40px"}}>
                 <p>
                     X: 163.45 <br/> <br/> Y: -88.39 <br/> <br/> Z: 5.55

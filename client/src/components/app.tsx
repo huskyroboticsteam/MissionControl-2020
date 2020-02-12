@@ -57,7 +57,9 @@ class App extends React.Component<AppProps> {
         <CssBaseline/>
         <div style= {{marginTop: "0px", paddingTop: "0px", top:"0px", width: "100%"}}>
           <DashComponent sensors={sensors}/>
+          
         </div>
+       
         <Typography className={classes.rawData}>
           {JSON.stringify(nominal)}
           {JSON.stringify(sensors)}
