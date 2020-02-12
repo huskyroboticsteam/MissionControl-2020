@@ -4,9 +4,7 @@ import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 
-type TelemetryProps = {
-
-}
+type TelemetryProps = {};
 class TelemetryComponent extends React.Component<TelemetryProps> {
     // this displays the telemetry data
     render() {
