@@ -5,44 +5,43 @@ import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 
-// import CanvasJSReact from '../canvasjs.react';
 
-//var CanvasJSReact = require('./canvasjs.react');
-
-//var React = require('react');
 var Component = React.Component;
-//var CanvasJSReact = require('./canvasjs.react')
-
 var dps = [{x: 1, y: 10}, {x: 2, y: 13}, {x: 3, y: 18}, {x: 4, y: 20}];   //dataPoints.
 var xVal = dps.length + 1;
 var yVal = 15;
 var updateInterval = 3000;
+var interval;
 
 type TVOCgraphProps= {}
 
 class TVOCgraph extends React.Component<TVOCgraphProps> {
     chart: CanvasJSChart;
-    constructor(CO2graphProps) {
-		super(CO2graphProps);
+    constructor(TVOCgraphProps) {
+		super(TVOCgraphProps);
         this.updateChart = this.updateChart.bind(this);
         this.chart = new CanvasJSChart({});
+        
 	}
 	componentDidMount() {
-		setInterval(this.updateChart, updateInterval);
+		interval = setInterval(this.updateChart, updateInterval);
 	}
 	updateChart() {
-		yVal = yVal //+  Math.round(5 + Math.random() *(-5-5));
+		yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
 		dps.push({x: xVal,y: yVal});
 		xVal++;
 		if (dps.length >  10 ) {
 			dps.shift();
 		}
 		this.chart.render();
-	}
-	render() {
+  }
+  componentWillUnmount(){
+    clearInterval(interval);  
+  } 
+	render =()=> {
         const options = {
           title: {
-            text: "CO2 Graph"
+            text: "TVOC Graph"
           },
           data: [{
             type: "line",

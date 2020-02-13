@@ -42,24 +42,6 @@ class DashComponent extends React.Component<DashProps> {
     }
 }
 
-        <div
-          style={{
-            float: "left",
-            background: "#F3F5AD",
-            padding: "15px",
-            margin: "40px"
-          }}
-        >
-          <p>
-            X: 163.45 <br /> <br /> Y: -88.39 <br /> <br /> Z: 5.55
-          </p>
-        </div>
-        <div style={{ float: "right", padding: "1px", margin: "30px" }}>
-          <ConnectionQualityComponent quality={100} />
-        </div>
-      </div>
-    );
-  }
-}
+
 
 export default DashComponent;
