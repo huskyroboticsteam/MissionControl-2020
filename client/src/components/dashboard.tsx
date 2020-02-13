@@ -4,7 +4,7 @@ import ReactSpeedometer from "react-d3-speedometer";
 import StopButton from "./stop-button";
 import ConnectionQualityComponent from "./connection-quality-component";
 import "./dashboard.css";
-
+import Temperature from "./temperature-component";
 import DataPacket from "../types";
 type DashProps = {
   sensors: DataPacket;
@@ -44,6 +44,8 @@ class DashComponent extends React.Component<DashProps> {
         </div>
         <div style={{ float: "right", padding: "1px", margin: "30px" }}>
           <ConnectionQualityComponent quality={100} />
+          <Temperature value = {this.props.sensors.temperature}/>
+
         </div>
       </div>
     );

@@ -5,24 +5,23 @@ const defaultOptions = {
   animDuration: 1,
   showValue: true,
   initialValue: 0,
-  max: 50 ,
+  max: 200 ,
   dialStartAngle: 180,
   dialEndAngle: 0,
   color: function(value) {
-    if(value < 15) {
+    if(value < 50) {
       return "#5ee432";
-    }else if(value < 25) {
+    }else if(value < 100) {
       return "#fffa50";
-    }else if(value < 38) {
+    }else if(value < 150) {
       return "#f7aa38";
     }else {
       return "#ef4655";
     }
   } 
-  // Put any other defaults you want. e.g. dialStartAngle, dialEndAngle, radius, etc.
 };
 
-const Gauge = props => {
+const Temperature = props => {
   const gaugeEl = useRef(null);
   const gaugeRef = useRef(null);
   useEffect(() => {
@@ -34,7 +33,7 @@ const Gauge = props => {
     gaugeRef.current.setValueAnimated(props.value, 1);
   }, [props]);
 
-  return <div ref={gaugeEl} className="gauge-container two"><div className="gauge-container two value-text">km/hr</div></div>;
+  return <div ref={gaugeEl} className="gauge-container two"><div className="value-text">°F</div></div>;
 };
 
 export default Temperature;
