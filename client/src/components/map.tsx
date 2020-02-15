@@ -33,7 +33,7 @@ class MapTest extends React.Component {
           minZoom = {0}
           maxZoom = {22}
         />
-        <Marker position={position}>
+        <Marker position={{ lat: this.state.lat, lng: this.state.lng}}>
           <Popup>
             <span>
               A pretty CSS3 popup.
