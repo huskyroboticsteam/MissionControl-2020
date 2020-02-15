@@ -26,7 +26,7 @@ interface FullState {
   isClicked: boolean;
   image: any;
 }
-class PhotoUpdate1 extends React.Component<PhotoUpdateProps, FullState> {
+class PhotoUpdate3 extends React.Component<PhotoUpdateProps, FullState> {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,10 +37,10 @@ class PhotoUpdate1 extends React.Component<PhotoUpdateProps, FullState> {
   }
   setInterval() {
     if (this.state.isClicked === false) {
-        this.setState({ isClicked: true });
-        setInterval(() => {
-          this.tickImg();
-        }, 1000);
+      this.setState({ isClicked: true });
+      setInterval(() => {
+        this.tickImg();
+      }, 1000);
     }
   }
 
@@ -51,10 +51,12 @@ class PhotoUpdate1 extends React.Component<PhotoUpdateProps, FullState> {
   }
 
   tickImg() {
-    imageIndex = imageIndex + 1;
-    this.setState({ image: images[imageIndex] });
-    if (imageIndex === images.length - 1) {
-      imageIndex = -1;
+    if (this.state.isFull) {
+      imageIndex = imageIndex + 1;
+      this.setState({ image: images[imageIndex] });
+      if (imageIndex === images.length - 1) {
+        imageIndex = -1;
+      }
     }
   }
 
@@ -88,11 +90,4 @@ class PhotoUpdate1 extends React.Component<PhotoUpdateProps, FullState> {
     }
   }
 }
-export default PhotoUpdate1;
-
-//        <Fullscreen
-//enabled={this.state.isFull}
-//onChange={isFull => this.setState({ isFull })}
-//>
-//<img src={this.state.image}/>
-//</Fullscreen>
+export default PhotoUpdate3;
