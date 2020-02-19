@@ -3,17 +3,33 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
+import CO2graph from "./scienceGraphCO2";
+import TVOCgraph from "./scienceGraphTVOC";
+import Button from '@material-ui/core/Button';
+type ScienceProps = {
 
-type ScienceProps = {};
+}
 class ScienceComponent extends React.Component<ScienceProps> {
-  // this displays science data
-  //copy pasted graph
-  render() {
-    return (
-      <div>
-        <h1>this is science</h1>
-      </div>
-    );
-  }
+    // this displays science data
+    render() {
+        return (
+            <div style={{clear:'both', marginLeft: "50px"}}>
+                <h1>this is the science page</h1>
+                <div style={{margin: "30px", float: "left"}}>
+                <CO2graph/>
+                </div>
+                <div style={{margin: "30px", float: "left"}}>
+                <TVOCgraph/>
+                </div>
+                <div style={{margin: "30px", float: "left"}}>
+                        <Button variant= "contained" href="" style= {{margin: "20px"}} color="primary"> Linear Rail Status </Button>
+                        <br></br>
+                        <Button variant= "contained" href="" style= {{margin: "20px"}} color="primary"> Drill Motor On/Off </Button>
+                        <br></br>
+                        <Button variant= "contained" href="" style= {{margin: "20px"}} color="primary"> Drill Up/Down </Button>
+                </div>
+            </div>
+        )
+    }
 }
 export default ScienceComponent;

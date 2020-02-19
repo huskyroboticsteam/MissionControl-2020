@@ -3,16 +3,25 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
-import PhotoUpdate from "./photo";
+import PhotoUpdate1 from "./camera-feed-one-component";
+import PhotoUpdate2 from "./camera-feed-two-component";
+import PhotoUpdate3 from "./camera-feed-three-component";
+import PhotoUpdate4 from "./camera-feed-four-component";
+import "./camera-component.css";
 
+// rename photoupdates
 type CameraProps = {};
 class CameraComponent extends React.Component<CameraProps> {
   // this displays multiple photographs (subject to change)
   render() {
     return (
       <div>
-        <h1> this is the camera page</h1>
-        <PhotoUpdate/>
+        <div>
+          <PhotoUpdate1 />
+        </div>
+        <div style={{ float: "right" }}>
+          <PhotoUpdate2 />
+        </div>
       </div>
     );
   }
