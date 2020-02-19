@@ -7,11 +7,15 @@ import "./dashboard.css";
 import Temperature from "./temperature-component";
 import DataPacket from "../types";
 import CoordinatesComponent from "./coordinates-component";
+import  *  as  data  from  './data.json';
+
 type DashProps = {
   sensors: DataPacket;
 };
-// this is the dash
-// clean up style code later
+
+var parsedData = JSON.parse(JSON.stringify(data)).default;
+var x = parsedData.GPS[0].Latitude;
+
 class DashComponent extends React.Component<DashProps> {
   render() {
     return (
