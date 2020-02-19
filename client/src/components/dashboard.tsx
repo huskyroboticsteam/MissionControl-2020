@@ -6,6 +6,7 @@ import ConnectionQualityComponent from "./connection-quality-component";
 import "./dashboard.css";
 import Temperature from "./temperature-component";
 import DataPacket from "../types";
+import CoordinatesComponent from "./coordinates-component";
 type DashProps = {
   sensors: DataPacket;
 };
@@ -30,11 +31,9 @@ class DashComponent extends React.Component<DashProps> {
           />
         </div>
         <div style = {{float:"left", background: "#F3F5AD", padding: "15px", margin: "40px"}}>
-        <p>
-          X: 163.45 <br /> <br /> Y: -88.39 <br /> <br /> Z: 5.55
-        </p>
         </div>
         <div style={{ float: "right", padding: "1px", margin: "30px" }}>
+          <CoordinatesComponent X={163.45} Y={-88.39} Z={5.55}/>
           <ConnectionQualityComponent quality={100} />
           <Temperature value = {this.props.sensors.temperature}/>
         </div>

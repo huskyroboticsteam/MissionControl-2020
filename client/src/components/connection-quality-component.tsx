@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./connection-quality-component.css";
 
 type ConnectionProps = {
   quality: Number;

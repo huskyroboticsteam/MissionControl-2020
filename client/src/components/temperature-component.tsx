@@ -6,8 +6,8 @@ const defaultOptions = {
   showValue: true,
   initialValue: 0,
   max: 200,
-  dialStartAngle: 180,
-  dialEndAngle: 0,
+  dialStartAngle: 90,
+  dialEndAngle: 90,
   color: function(value) {
     if (value < 50) {
       return "#5ee432";
