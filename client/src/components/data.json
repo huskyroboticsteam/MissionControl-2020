@@ -3,14 +3,14 @@
     "GPS": [
         {
             "Latitude": 12.9,
-            "Longitude": 16.0,
+            "Longitude": 16.0
         }
     ],
     "Science": [
         {
         "Temperature": 123.0,
         "Humidity": 66.8,
-        "CameraFeed": "string",
+        "CameraFeed": "string"
         }
     ],
     "Electronics": [
