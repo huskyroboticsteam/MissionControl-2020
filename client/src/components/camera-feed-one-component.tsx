@@ -37,10 +37,10 @@ class PhotoUpdate1 extends React.Component<PhotoUpdateProps, FullState> {
   }
   setInterval() {
     if (this.state.isClicked === false) {
-        this.setState({ isClicked: true });
-        setInterval(() => {
-          this.tickImg();
-        }, 1000);
+      this.setState({ isClicked: true });
+      setInterval(() => {
+        this.tickImg();
+      }, 1000);
     }
   }
 
@@ -51,10 +51,12 @@ class PhotoUpdate1 extends React.Component<PhotoUpdateProps, FullState> {
   }
 
   tickImg() {
-    imageIndex = imageIndex + 1;
-    this.setState({ image: images[imageIndex] });
-    if (imageIndex === images.length - 1) {
-      imageIndex = -1;
+    if (this.state.isFull) {
+      imageIndex = imageIndex + 1;
+      this.setState({ image: images[imageIndex] });
+      if (imageIndex === images.length - 1) {
+        imageIndex = -1;
+      }
     }
   }
 
@@ -63,8 +65,13 @@ class PhotoUpdate1 extends React.Component<PhotoUpdateProps, FullState> {
   };
 
   onClickCheck = () => {
-    this.goFull();
-    this.setInterval();
+    if (!this.state.isFull) {
+      this.goFull();
+      this.setInterval();
+    } else {
+      clearInterval();
+      this.setState({ isFull: false });
+    }
   };
 
   render() {
@@ -75,7 +82,7 @@ class PhotoUpdate1 extends React.Component<PhotoUpdateProps, FullState> {
             enabled={this.state.isFull}
             onChange={isFull => this.setState({ isFull })}
           >
-            <img src={this.state.image} />
+            <img src={this.state.image} onClick={this.onClickCheck} />
           </Fullscreen>
         </div>
       );
@@ -89,10 +96,3 @@ class PhotoUpdate1 extends React.Component<PhotoUpdateProps, FullState> {
   }
 }
 export default PhotoUpdate1;
-
-//        <Fullscreen
-//enabled={this.state.isFull}
-//onChange={isFull => this.setState({ isFull })}
-//>
-//<img src={this.state.image}/>
-//</Fullscreen>

@@ -34,9 +34,9 @@ app.ws("/info", function(ws) {
   });
 });
 
-app.post("/:command", function(req, res) {
-  commandService.write(req.params.command);
-  res.send(200);
+app.post("/", function(req, res) {
+  commandService.write(JSON.stringify(req.query));
+  res.sendStatus(200);
 });
 
 const start = async function() {
