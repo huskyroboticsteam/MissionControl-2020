@@ -17,7 +17,7 @@ function importAll(r) {
   return r.keys().map(r);
 }
 const images = importAll(
-  require.context("./camera_feed_01", false, /\.(png|jpe?g|svg)$/)
+  require.context("./camera_feed_04", false, /\.(png|jpe?g|svg)$/)
 );
 let imageIndex = 0;
 interface PhotoUpdateProps {}
