@@ -3,6 +3,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
+import TelemetryTableComponent from "./telemetry-table-component";
 
 type TelemetryProps = {};
 class TelemetryComponent extends React.Component<TelemetryProps> {
@@ -11,6 +12,7 @@ class TelemetryComponent extends React.Component<TelemetryProps> {
         return (
             <div style={{clear:'both'}}>
                 <h1>this is the telemetry page</h1>
+                <TelemetryTableComponent />
             </div>
         )
     }
