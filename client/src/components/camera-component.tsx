@@ -14,7 +14,8 @@ type CameraProps = {};
 
 const divStyle = {
   display: 'flex',
-  alignItems: 'center'
+  margin: "100px",
+  justifyContent: "space-between"
 };
 
 class CameraComponent extends React.Component<CameraProps> {
