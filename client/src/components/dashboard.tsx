@@ -34,8 +34,7 @@ class DashComponent extends React.Component<DashProps> {
             endColor="blue"
           />
         </div>
-        <div style = {{float:"left", background: "#F3F5AD", padding: "15px", margin: "40px"}}>
-        </div>
+        
         <div style={{ float: "right", padding: "1px", margin: "30px" }}>
           <CoordinatesComponent X={163.45} Y={-88.39} Z={5.55}/>
           <ConnectionQualityComponent quality={100} />
