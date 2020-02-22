@@ -1,5 +1,6 @@
 import { Typography, CssBaseline, withStyles, Theme } from "@material-ui/core";
 import * as React from "react";
+import Snackbar from "@material-ui/core/Snackbar";
 import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";

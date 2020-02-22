@@ -14,10 +14,12 @@ const useStyles = makeStyles({
   },
 });
 
+// rename column data later
 function createData(motor, status, fat, carbs, protein) {
   return { motor, status, fat, carbs, protein };
 }
 
+// integrate nominal/sensor data into table
 const rows = [
   createData('Front Left', 159, 6.0, 24, 4.0),
   createData('Front Right', 237, 9.0, 37, 4.3),

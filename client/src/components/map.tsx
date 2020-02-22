@@ -12,10 +12,17 @@ class MapTest extends React.Component {
   state = {
     lat: 47.6498,
     lng: -122.3038,
-    zoom: 19
+    zoom: 19,
+    markers: [[47.6498, -122.3038]] 
   };
   constructor(props) {
     super(props);
+  }
+
+  addMarker = (e) => { 
+    const {markers} = this.state
+    markers.push(e.latlng)
+    this.setState({markers})
   }
 
   render() {
@@ -24,7 +31,8 @@ class MapTest extends React.Component {
       <Map
         center={position}
         zoom={this.state.zoom}
-        style={{ width: "50%", height: "380px" }}
+        style={{ width: "50%", height: "380px", right: "500px"}}
+        onClick={this.addMarker} 
       >
         <TileLayer
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
@@ -33,17 +41,20 @@ class MapTest extends React.Component {
           minZoom = {0}
           maxZoom = {22}
         />
+        {this.state.markers.map((position, idx) => 
         <Marker 
-          position={{ lat: this.state.lat, lng: this.state.lng}}
+          key={`marker-${idx}`} 
+          position={position} 
         >
           <Popup>
             <span>
-              A pretty CSS3 popup.
+              A pretty CSS3 popup.             
               <br />
-              Easily customizable.
+              Easily customizable.             
             </span>
           </Popup>
         </Marker>
+        )} 
       </Map>
     );
   }
