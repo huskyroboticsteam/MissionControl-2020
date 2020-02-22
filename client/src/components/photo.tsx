@@ -7,11 +7,8 @@ import { ImageGroup, Image } from "react-fullscreen-image";
 import { Component } from "react";
 import { runInThisContext } from "vm";
 
-// update picture
-// figure out how to stop "stopmotion" when leaving fullscreen
-// add timer to picture display
-// added fullscreen option, now make it to separate camera streams
 // fix resolution of images
+// ask how often pictures will be sent
 
 function importAll(r) {
   return r.keys().map(r);
@@ -90,9 +87,3 @@ class PhotoUpdate1 extends React.Component<PhotoUpdateProps, FullState> {
 }
 export default PhotoUpdate1;
 
-//        <Fullscreen
-//enabled={this.state.isFull}
-//onChange={isFull => this.setState({ isFull })}
-//>
-//<img src={this.state.image}/>
-//</Fullscreen>
