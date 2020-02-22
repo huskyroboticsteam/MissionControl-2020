@@ -19,16 +19,11 @@ var x = parsedData.GPS[0].Latitude;
 class DashComponent extends React.Component<DashProps> {
   render() {
     return (
-      <div style={{ background: "#959298", height: "250px", margin: "0px"}}>
+      <div style={{ background: "#959298", height: "250px", margin: "0px", padding: "10px"}}>
         <div style={{float: "left", padding: "10px", margin: "40px" }}>
           <StopButton />
         </div>
-        <div style={{float: "right", padding: "1px", margin: "10px", marginTop: "0px"}}>
-          <CoordinatesComponent X={163.45} Y={-88.39} Z={5.55}/>
-          <ConnectionQualityComponent quality={100} />
-          <Temperature value = {this.props.sensors.temperature}/>
-        </div>
-        <div style={{display: "flex", marginTop: "50px", margin: "0px" }}>
+        <div style={{display: "flex", float: "left", marginTop: "20px", margin: "0px", padding: "20px" }}>
           <ReactSpeedometer
             maxValue={500}
             value={473}
@@ -39,6 +34,15 @@ class DashComponent extends React.Component<DashProps> {
             endColor="blue"
           />
         </div>
+        <div style={{float: "left", paddingTop: "20px", padding:"5px", margin: "0px", marginTop: "0px"}}>
+          <CoordinatesComponent X={163.45} Y={-88.39} Z={5.55}/> 
+        </div>
+        <div style={{padding: "10px", margin: "0px", marginTop: "0px", paddingTop: "20px"}}> 
+          <Temperature value = {this.props.sensors.temperature}/>
+          </div>
+        <div style={{float: "right", padding: "20px", margin: "10px", marginTop: "0px"}}>
+         <ConnectionQualityComponent quality={100} />
+        </div>   
       </div>
     );
   }

@@ -11,7 +11,7 @@ const coordinatesBarContainer = {
     borderStyle: 'solid',
     borderColor: "black",
     borderWidth: "thin",
-    background: 'grey',
+    background: '#F3F5AD',
     margin: 40,
     padding: 10,
 } as React.CSSProperties;
