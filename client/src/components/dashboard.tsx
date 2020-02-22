@@ -19,7 +19,7 @@ var x = parsedData.GPS[0].Latitude;
 class DashComponent extends React.Component<DashProps> {
   render() {
     return (
-      <div style={{ background: "#959298", height: "250px", margin: "0px"}}>
+      <div style={{ background: "#959298", height: "200px", margin: "0px"}}>
         <div style={{float: "left", padding: "10px", margin: "40px" }}>
           <StopButton />
         </div>
@@ -38,12 +38,6 @@ class DashComponent extends React.Component<DashProps> {
             segments={10}
             endColor="blue"
           />
-        </div>
-        
-        <div style={{ float: "right", padding: "1px", margin: "30px" }}>
-          <CoordinatesComponent X={163.45} Y={-88.39} Z={5.55}/>
-          <ConnectionQualityComponent quality={100} />
-          <Temperature value = {this.props.sensors.temperature}/>
         </div>
       </div>
     );
