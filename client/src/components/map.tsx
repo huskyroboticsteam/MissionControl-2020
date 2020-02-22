@@ -24,7 +24,7 @@ class MapTest extends React.Component {
       <Map
         center={position}
         zoom={this.state.zoom}
-        style={{ width: "50%", height: "400px" }}
+        style={{ width: "50%", height: "380px" }}
       >
         <TileLayer
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
@@ -33,7 +33,9 @@ class MapTest extends React.Component {
           minZoom = {0}
           maxZoom = {22}
         />
-        <Marker position={{ lat: this.state.lat, lng: this.state.lng}}>
+        <Marker 
+          position={{ lat: this.state.lat, lng: this.state.lng}}
+        >
           <Popup>
             <span>
               A pretty CSS3 popup.

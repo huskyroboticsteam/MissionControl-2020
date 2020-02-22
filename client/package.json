@@ -45,6 +45,7 @@
     "react-full-screen": "^0.2.4",
     "react-fullscreen-image": "0.0.3",
     "react-leaflet": "^2.6.1",
+    "react-leaflet-coordinates": "^1.0.1",
     "react-linechart": "^1.1.12",
     "react-native": "^0.61.5",
     "react-native-paper": "^3.5.0",

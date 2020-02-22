@@ -11,16 +11,25 @@ import "./camera-component.css";
 
 // rename photoupdates
 type CameraProps = {};
+
+const divStyle = {
+  display: 'flex',
+  margin: "100px",
+  justifyContent: "space-between"
+};
+
 class CameraComponent extends React.Component<CameraProps> {
   // this displays multiple photographs (subject to change)
   render() {
     return (
       <div>
-        <div>
+        <div style={divStyle}>
           <PhotoUpdate1 />
-        </div>
-        <div style={{ float: "right" }}>
           <PhotoUpdate2 />
+        </div>
+        <div style={divStyle}>
+          <PhotoUpdate3 />
+          <PhotoUpdate4 />
         </div>
       </div>
     );
