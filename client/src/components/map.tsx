@@ -31,7 +31,7 @@ class MapTest extends React.Component {
       <Map
         center={position}
         zoom={this.state.zoom}
-        style={{ width: "50%", height: "380px" }}
+        style={{ width: "50%", height: "380px", right: "500px"}}
         onClick={this.addMarker} 
       >
         <TileLayer
@@ -48,9 +48,9 @@ class MapTest extends React.Component {
         >
           <Popup>
             <span>
-              A pretty CSS3 popup.
+              A pretty CSS3 popup.             
               <br />
-              Easily customizable.
+              Easily customizable.             
             </span>
           </Popup>
         </Marker>
