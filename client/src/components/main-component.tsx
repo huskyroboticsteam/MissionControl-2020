@@ -7,20 +7,13 @@ import MapTest from "./map";
 import CheckboxesGroup from "./tasklist-component";
 
 type MainProps = {};
-const divStyle = {
-  display: "flex",
-  marginTop: "0px"
-};
 // figure out what map we will use and how to integrate it
 class MainComponent extends React.Component<MainProps> {
   // this is the Main page
   render() {
     return (
       <div style={{ clear: "both" }}>
-        <div style={divStyle}>
-          <MapTest />
-          <CheckboxesGroup />
-        </div>
+        <MapTest />
       </div>
     );
   }

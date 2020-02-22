@@ -3,6 +3,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
+import CheckboxesGroup from "./tasklist-component";
 
 type ArmProps = {
   value: number
@@ -29,12 +30,15 @@ class ArmComponent extends React.Component<ArmProps, any> {
 
   render() {
     return (
+      <div>
+        <CheckboxesGroup/>
       <form onSubmit={this.handleSubmit}>
         <label>
           Input Angle here: 
           <input type="number" value={this.state.value} onChange={this.handleChange} />
         </label>
       </form>
+      </div>
     );
   }
 }
