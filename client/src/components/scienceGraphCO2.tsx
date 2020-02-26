@@ -51,7 +51,7 @@ class CO2graph extends Component<CO2graphProps> {
         }]
        }
        return (
-          <div style={{height: "200px", width: "300px"}}>
+          <div style={{height: "200px", width: "500px"}}>
             <CanvasJSChart options = {options}
                 onRef = {(ref: CanvasJSChart) => this.chart = ref}
             />

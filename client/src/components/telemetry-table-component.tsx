@@ -21,6 +21,7 @@ function createData(motor, status, current, voltage) {
   return { motor, status, current, voltage};
 }
 
+// integrate nominal/sensor data into table
 const rows = [
   createData('Front Left', <DoneIcon/>, 6.0, 24),
   createData('Front Right', <ErrorIcon/>, 9.0, 37),

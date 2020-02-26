@@ -1,5 +1,6 @@
 import { Typography, CssBaseline, withStyles, Theme } from "@material-ui/core";
 import * as React from "react";
+import Snackbar from "@material-ui/core/Snackbar";
 import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
@@ -14,6 +15,7 @@ import { Route, HashRouter } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import "./app.css";
 import DataPacket from "../types";
+import ControllerComponent from "./controller-component";
 const backTheme = createMuiTheme({
   palette: {
     background: {
@@ -58,6 +60,7 @@ class App extends React.Component<AppProps> {
               }}
             >
               <DashComponent sensors={sensors} />
+              <ControllerComponent/>
             </div>
             <div style={{clear: "both", height: "0px", padding: '0px'}}></div>  
             <Typography className={classes.rawData}>

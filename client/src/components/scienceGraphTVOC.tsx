@@ -49,7 +49,7 @@ class TVOCgraph extends React.Component<TVOCgraphProps> {
         }]
        }
        return (
-          <div style={{height: "200px", width: "300px"}}>
+          <div style={{height: "200px", width: "500px"}}>
             <CanvasJSChart options = {options}
                 onRef = {(ref: CanvasJSChart) => this.chart = ref}
             />
