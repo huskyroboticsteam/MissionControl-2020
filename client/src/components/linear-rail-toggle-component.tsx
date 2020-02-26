@@ -51,7 +51,7 @@ const AntSwitch = withStyles((theme: Theme) =>
   })
 )(Switch);
 
-export default function DrillToggle() {
+export default function LinearRailToggle() {
   const [state, setState] = React.useState({
     checked: true
   });
@@ -80,7 +80,7 @@ export default function DrillToggle() {
             </Grid>
           </Typography>
         }
-        label={<div><b>Drill Motor</b></div>}
+        label={<div><b>Linear Rail</b></div>}
         labelPlacement="bottom"
       />
       </div>

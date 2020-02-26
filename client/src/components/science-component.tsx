@@ -7,6 +7,7 @@ import CO2graph from "./scienceGraphCO2";
 import TVOCgraph from "./scienceGraphTVOC";
 import Button from '@material-ui/core/Button';
 import DrillToggle from './drill-toggle-component';
+import LinearRailToggle from './linear-rail-toggle-component';
 type ScienceProps = {
 
 }
@@ -23,9 +24,9 @@ class ScienceComponent extends React.Component<ScienceProps> {
                 <TVOCgraph/>
                 </div>
                 <div style={{margin: "30px", float: "left"}}>
-                        <Button variant= "contained" href="" style= {{margin: "20px"}} color="primary"> Linear Rail Status </Button>
+                        <LinearRailToggle/>
                         <br></br>
-                        <DrillToggle />
+                        <DrillToggle/>
                         <br></br>
                         <Button variant= "contained" href="" style= {{margin: "20px"}} color="primary"> Drill Up/Down </Button>
                 </div>

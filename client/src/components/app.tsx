@@ -15,6 +15,7 @@ import { Route, HashRouter } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import "./app.css";
 import DataPacket from "../types";
+import ControllerComponent from "./controller-component";
 const backTheme = createMuiTheme({
   palette: {
     background: {
@@ -59,6 +60,7 @@ class App extends React.Component<AppProps> {
               }}
             >
               <DashComponent sensors={sensors} />
+              <ControllerComponent/>
             </div>
             <Typography className={classes.rawData}>
               {JSON.stringify(nominal)}
