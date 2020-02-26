@@ -7,23 +7,26 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import ErrorIcon from "@material-ui/icons/Error";
+import DoneIcon from "@material-ui/icons/Done";
 
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
+    
   },
 });
 
-function createData(motor, status, fat, carbs, protein) {
-  return { motor, status, fat, carbs, protein };
+function createData(motor, status, current, voltage) {
+  return { motor, status, current, voltage};
 }
 
 const rows = [
-  createData('Front Left', 159, 6.0, 24, 4.0),
-  createData('Front Right', 237, 9.0, 37, 4.3),
-  createData('Bottom Left', 262, 16.0, 24, 6.0),
-  createData('Bottom Right', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData('Front Left', <DoneIcon/>, 6.0, 24),
+  createData('Front Right', <ErrorIcon/>, 9.0, 37),
+  createData('Bottom Left', <DoneIcon/>, 24, 24),
+  createData('Bottom Right', <DoneIcon/>, 3.7, 673),
+  createData("Arm", <DoneIcon/>, 16.0, 49),
 ];
 
 export default function TelemetryTableComponent() {
@@ -36,9 +39,8 @@ export default function TelemetryTableComponent() {
           <TableRow>
             <TableCell>Motor</TableCell>
             <TableCell align="right">Status</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell align="right">Current&nbsp;(A)</TableCell>
+            <TableCell align="right">Voltage&nbsp;(V)</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -48,9 +50,8 @@ export default function TelemetryTableComponent() {
                 {row.motor}
               </TableCell>
               <TableCell align="right">{row.status}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{row.current}</TableCell>
+              <TableCell align="right">{row.voltage}</TableCell>
             </TableRow>
           ))}
         </TableBody>

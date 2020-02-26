@@ -11,8 +11,11 @@ class TelemetryComponent extends React.Component<TelemetryProps> {
     render() {
         return (
             <div style={{clear:'both'}}>
-                <h1>this is the telemetry page</h1>
+                <h1></h1>
+                <div style={{padding:'20px'}}>
                 <TelemetryTableComponent />
+                </div>
+               
             </div>
         )
     }

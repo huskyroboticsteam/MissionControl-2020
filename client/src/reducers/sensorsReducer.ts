@@ -5,6 +5,11 @@ const initialState = {
     timestamp: 0,
     temperature: 87,
     quality: 20,
+    velocity:55,
+    x: 20,
+    y: 30,
+    z: 50,
+    voltage: true, 
   }
 };
 
