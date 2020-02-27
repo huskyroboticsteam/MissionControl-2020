@@ -31,7 +31,7 @@ class MapTest extends React.Component {
       <Map
         center={position}
         zoom={this.state.zoom}
-        style={{ width: "50%", height: "380px", right: "500px"}}
+        style={{ width: "50%", height: "380px", right: "500px", position:"absolute"}}
         onClick={this.addMarker} 
       >
         <TileLayer

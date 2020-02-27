@@ -23,8 +23,7 @@ class DashComponent extends React.Component<DashProps> {
         <div style={{float: "left", padding: "10px", margin: "40px" }}>
           <StopButton />
         </div>
-        <div style={{display: "flex", float: "left", marginTop: "20px", margin: "0px", padding: "20px" }}>
-          
+        <div style={{display: "flex", float: "left", marginTop: "20px", margin: "0px", padding: "20px", fontFamily: "Roboto"}}>
           <ReactSpeedometer
             maxValue={500}
             value={this.props.sensors.velocity}

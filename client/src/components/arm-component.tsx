@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 import CheckboxesGroup from "./tasklist-component";
+import GamepadList from "./GamepadList";
 
 type ArmProps = {
   value: number
@@ -38,6 +39,7 @@ class ArmComponent extends React.Component<ArmProps, any> {
           <input type="number" value={this.state.value} onChange={this.handleChange} />
         </label>
       </form>
+      <GamepadList />
       </div>
     );
   }
