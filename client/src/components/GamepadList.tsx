@@ -23,7 +23,7 @@ export default class GamepadList extends React.Component<any, GamepadListState> 
   render() {
     var gamepadArr: (Gamepad | null)[] = [].slice.call(this.state.gamepads);
     return (
-      <div className="gamepad-list" style={{background:"grey"}}>
+      <div className="gamepad-list" style={{background:"#b19cd9"}}>
         <GamepadItem gamepad={gamepadArr[0]} key={0} index = {0}/>
       </div>
     )
