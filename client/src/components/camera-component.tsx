@@ -8,11 +8,10 @@ import "./camera-component.css";
 import DataPacket from "../types";
 
 // rename photoupdates
-type CameraProps = {
-};
+type CameraProps = {};
 
 const divStyle = {
-  display: 'flex',
+  display: "flex",
   margin: "100px",
   justifyContent: "space-between"
 };
