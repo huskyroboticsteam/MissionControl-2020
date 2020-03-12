@@ -53,11 +53,13 @@
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.3.0",
+    "react-three-fiber": "^4.0.17",
     "recompose": "^0.30.0",
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "svg-gauge": "^1.0.5",
+    "three": "^0.113.2",
     "typescript": "^3.7.2"
   },
   "devDependencies": {

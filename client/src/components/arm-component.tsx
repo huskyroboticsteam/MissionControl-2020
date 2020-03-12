@@ -5,6 +5,7 @@ import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 import CheckboxesGroup from "./tasklist-component";
 import GamepadList from "./GamepadList";
+import CanvasTesting from "./arm-test-component";
 
 type ArmProps = {
   value: number
@@ -32,6 +33,7 @@ class ArmComponent extends React.Component<ArmProps, any> {
   render() {
     return (
       <div>
+        <CanvasTesting/>
         <CheckboxesGroup/>
       <form onSubmit={this.handleSubmit}>
         <label>

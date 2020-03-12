@@ -1,5 +1,5 @@
 import { Typography, CssBaseline, withStyles, Theme } from "@material-ui/core";
-import React, { Component } from "react";
+import React from "react";
 import ReactSpeedometer from "react-d3-speedometer";
 import StopButton from "./dash-components/stop-button";
 import ConnectionQualityComponent from "./dash-components/connection-quality-component";
