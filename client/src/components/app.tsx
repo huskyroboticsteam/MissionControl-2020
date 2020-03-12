@@ -10,6 +10,7 @@ import CameraComponent from "./camera-component";
 import TelemetryComponent from "./telemetry-component";
 import ScienceComponent from "./science-component";
 import DashComponent from "./dashboard";
+import makeRequest from "../utils/request/makeRequest";
 import { Route, HashRouter } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import "./app.css";

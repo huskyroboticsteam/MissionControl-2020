@@ -24,7 +24,7 @@ const start = async function() {
 
 function write(message) {
   if (connection) connection.write(message);
-  else console.log("CANNOT WRITE TO CONNECTION, NO CONNECTION AVAILABLE");
+  else console.log("CANNOT WRITE TO ROVER, NO CONNECTION AVAILABLE");
 }
 
 export { connection, start, write };
