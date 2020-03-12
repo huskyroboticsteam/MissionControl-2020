@@ -1,17 +1,8 @@
 import * as React from "react";
-import { SSL_OP_CISCO_ANYCONNECT } from "constants";
-import { any } from "prop-types";
 import Fullscreen from "react-full-screen";
 import "./photo.css";
-import { ImageGroup, Image } from "react-fullscreen-image";
-import { Component } from "react";
-import { runInThisContext } from "vm";
 
-// update picture
-// figure out how to stop "stopmotion" when leaving fullscreen
-// add timer to picture display
-// added fullscreen option, now make it to separate camera streams
-// fix resolution of images
+
 // cameraFeed: string;
 type PhotoUpdateProps = {
 
