@@ -1,12 +1,4 @@
-import {
-  Typography,
-  CssBaseline,
-  withStyles,
-  Theme,
-  makeStyles,
-  Grid
-} from "@material-ui/core";
-import React, { Component } from "react";
+import React from "react";
 import "./navbar.css";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";

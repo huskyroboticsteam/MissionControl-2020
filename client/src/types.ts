@@ -7,6 +7,7 @@ interface DataPacket {
     z:number;
     velocity: number;
     voltage: boolean;
+    camera1:string;
 }
 
 export default DataPacket;

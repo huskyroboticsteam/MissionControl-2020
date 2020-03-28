@@ -60,7 +60,6 @@ class App extends React.Component<AppProps> {
               }}
             >
               <DashComponent sensors={sensors} />
-              <ControllerComponent/>
             </div>
             <div style={{clear: "both", height: "0px", padding: '0px'}}></div>  
             <Typography className={classes.rawData}>

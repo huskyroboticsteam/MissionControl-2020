@@ -25,6 +25,8 @@ class MapTest extends React.Component {
     this.setState({markers})
   }
 
+  
+
   render() {
     const position = [this.state.lat, this.state.lng];
     return (

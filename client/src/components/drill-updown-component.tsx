@@ -1,7 +1,5 @@
 import React from "react";
 import { withStyles, Theme, createStyles } from "@material-ui/core/styles";
-import { purple } from "@material-ui/core/colors";
-import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch, { SwitchClassKey, SwitchProps } from "@material-ui/core/Switch";
 import Grid from "@material-ui/core/Grid";
@@ -63,7 +61,15 @@ export default function DrillUpDownToggle() {
   };
 
   return (
-    <div style={{border: "solid", borderWidth: "thin", background: "#eeeeee", width: "130px",  textAlign: "center",}}>
+    <div
+      style={{
+        border: "solid",
+        borderWidth: "thin",
+        background: "#eeeeee",
+        width: "130px",
+        textAlign: "center"
+      }}
+    >
       <FormControlLabel
         control={
           <Typography component="div">
@@ -80,9 +86,13 @@ export default function DrillUpDownToggle() {
             </Grid>
           </Typography>
         }
-        label={<div><b>Drill Direction</b></div>}
+        label={
+          <div>
+            <b>Drill Direction</b>
+          </div>
+        }
         labelPlacement="bottom"
       />
-      </div>
+    </div>
   );
 }
