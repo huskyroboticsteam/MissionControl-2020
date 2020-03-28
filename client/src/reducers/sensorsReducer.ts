@@ -9,7 +9,10 @@ const initialState = {
     x: 20,
     y: 30,
     z: 50,
-    voltage: true, 
+    voltage: true,
+    voltages: 100,
+    current: 20, 
+
   }
 };
 

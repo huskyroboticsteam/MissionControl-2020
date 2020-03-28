@@ -5,6 +5,7 @@ import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 import TelemetryTableComponent from "./telemetry-table-component";
 
+
 type TelemetryProps = {};
 class TelemetryComponent extends React.Component<TelemetryProps> {
     // this displays the telemetry data
