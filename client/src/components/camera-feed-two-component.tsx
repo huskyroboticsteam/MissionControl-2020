@@ -13,86 +13,45 @@ import { runInThisContext } from "vm";
 // added fullscreen option, now make it to separate camera streams
 // fix resolution of images
 
-function importAll(r) {
-  return r.keys().map(r);
-}
-const images = importAll(
-  require.context("./camera_feed_02", false, /\.(png|jpe?g|svg)$/)
-);
-let imageIndex = 0;
-interface PhotoUpdateProps {}
+type PhotoUpdateProps = {};
 interface FullState {
   isFull: boolean;
-  isClicked: boolean;
-  image: any;
 }
+
 class PhotoUpdate2 extends React.Component<PhotoUpdateProps, FullState> {
   constructor(props) {
     super(props);
     this.state = {
-      isFull: false,
-      isClicked: false,
-      image: images[0]
+      isFull: false
     };
-  }
-  setInterval() {
-    if (this.state.isClicked === false) {
-      this.setState({ isClicked: true });
-      setInterval(() => {
-        this.tickImg();
-      }, 1000);
-    }
   }
 
   compononentWillUnmount() {
-    imageIndex = 0;
     this.setState({ isFull: false });
-    clearInterval();
-  }
-
-  tickImg() {
-    if (this.state.isFull) {
-      imageIndex = imageIndex + 1;
-      this.setState({ image: images[imageIndex] });
-      if (imageIndex === images.length - 1) {
-        imageIndex = -1;
-      }
-    }
   }
 
   goFull = () => {
     this.setState({ isFull: true });
   };
 
-  onClickCheck = () => {
-    if (!this.state.isFull) {
-      this.goFull();
-      this.setInterval();
-    } else {
-      this.setState({ isFull: false });
-      clearInterval();
-    }
+  cancelFull = () => {
+    this.setState({ isFull: false });
   };
 
   render() {
-    if (this.state.isFull) {
-      return (
-        <div className="container">
-          <Fullscreen
-            enabled={this.state.isFull}
-            onChange={isFull => this.setState({ isFull })}
-          >
-            <img src={this.state.image} onClick={this.onClickCheck} />
-          </Fullscreen>
-        </div>
-      );
-    } else {
-      return (
-        <div className="container">
-          <img src={this.state.image} onClick={this.onClickCheck} />
-        </div>
-      );
-    }
+    const cameraDummy =
+      "https://image.shutterstock.com/image-vector/sample-speech-bubble-sign-banner-260nw-1475723558.jpg";
+    return (
+      <div className="container">
+        <button onClick={this.goFull}>Arm Camera</button>
+        <Fullscreen
+          enabled={this.state.isFull}
+          onChange={isFull => this.setState({ isFull })}
+        >
+          <img src={cameraDummy} alt="sample"onClick={this.cancelFull} />
+        </Fullscreen>
+      </div>
+    );
   }
 }
 export default PhotoUpdate2;
