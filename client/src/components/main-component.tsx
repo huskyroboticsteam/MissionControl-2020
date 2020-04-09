@@ -5,6 +5,8 @@ import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 import MapTest from "./map";
 import CheckboxesGroup from "./tasklist-component";
+import MapCheck from "./testmap";
+
 
 type MainProps = {};
 

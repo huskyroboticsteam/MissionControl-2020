@@ -16,6 +16,7 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import "./app.css";
 import DataPacket from "../types";
 import ControllerComponent from "./controller-component";
+import 'mapbox-gl/dist/mapbox-gl.css';
 const backTheme = createMuiTheme({
   palette: {
     background: {
