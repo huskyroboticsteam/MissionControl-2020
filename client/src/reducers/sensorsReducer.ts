@@ -9,7 +9,11 @@ const initialState = {
     x: 20,
     y: 30,
     z: 50,
-    voltage: true, 
+    voltage: true,
+    voltages: 100,
+    current: 20, 
+
+  
     camera1: 'https://image.shutterstock.com/image-vector/sample-speech-bubble-sign-banner-260nw-1475723558.jpg',
   }
 };
