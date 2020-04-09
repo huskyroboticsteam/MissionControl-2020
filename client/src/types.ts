@@ -7,6 +7,8 @@ interface DataPacket {
     z:number;
     velocity: number;
     voltage: boolean;
+    voltages: number;
+    current: number;
     camera1:string;
 }
 

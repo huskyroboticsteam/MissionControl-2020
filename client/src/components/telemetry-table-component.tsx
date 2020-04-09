@@ -35,7 +35,7 @@ function checkVoltage(props) {
 }
 
 function checkCurrent(props) {
-  if (prop.Current>=100) {
+  if (props.Current>=100) {
       return (
           <div>
             <DoneIcon/>
@@ -70,8 +70,11 @@ const rows = [
   createData('Bottom Right', <DoneIcon/>, 3.7, 673),
   createData("Arm", <DoneIcon/>, 16.0, 49),
 ];
-class TelemetryTableComponent extends React.Component<TelemetryProps>{
-  render() { 
+
+export default function TelemetryTableComponent() {
+  const classes = useStyles();
+//class TelemetryTableComponent extends React.Component<TelemetryProps>{
+  //render() { 
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
@@ -99,6 +102,5 @@ class TelemetryTableComponent extends React.Component<TelemetryProps>{
     </TableContainer>
   );
   }
-}
 
-export default TelemetryTableComponent;
+//export default TelemetryTableComponent;
