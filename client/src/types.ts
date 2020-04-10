@@ -7,6 +7,8 @@ interface DataPacket {
     z:number;
     velocity: number;
     voltage: boolean;
+    latitude: number;
+    longitude: number;
 }
 
 export default DataPacket;

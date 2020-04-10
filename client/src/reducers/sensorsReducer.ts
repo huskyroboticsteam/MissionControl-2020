@@ -10,6 +10,8 @@ const initialState = {
     y: 30,
     z: 50,
     voltage: true, 
+    latitude: 47.6498,
+    longitude: -122.3038
   }
 };
 

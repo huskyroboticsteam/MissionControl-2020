@@ -67,7 +67,7 @@ class App extends React.Component<AppProps> {
               {JSON.stringify(nominal)}
               {JSON.stringify(sensors)}
             </Typography>
-            <Route path="/main-component" component={MainComponent} />
+            <Route path="/main-component" render={(props) => <MainComponent {...props} sensors={sensors} />} />
             <Route path="/arm-component" component={ArmComponent} />
             <Route path="/science-component" component={ScienceComponent} />
             <Route path="/telemetry-component" component={TelemetryComponent} />

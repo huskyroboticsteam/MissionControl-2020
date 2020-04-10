@@ -5,16 +5,21 @@ import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 import MapTest from "./map";
 import CheckboxesGroup from "./tasklist-component";
+import DataPacket from "../types";
 
-type MainProps = {};
+type MainProps = {
+  sensors: DataPacket;
+};
 
 // figure out what map we will use and how to integrate it
+//class MainComponent extends React.Component {
 class MainComponent extends React.Component<MainProps> {
   // this is the Main page
   render() {
+    //const {sensors} = this.props;
     return (
       <div>
-      <MapTest />
+      <MapTest latitude={this.props.sensors.latitude} longitude={this.props.sensors.longitude}/>
       </div>
     );
   }
