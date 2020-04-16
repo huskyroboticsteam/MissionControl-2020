@@ -47,6 +47,7 @@ class App extends React.Component<AppProps> {
 
   render() {
     const { classes, nominal, sensors } = this.props;
+    
     return (
       <MuiThemeProvider theme={backTheme}>
         <HashRouter>
@@ -71,7 +72,7 @@ class App extends React.Component<AppProps> {
             <Route path="/arm-component" component={ArmComponent} />
             <Route path="/science-component" component={ScienceComponent} />
             <Route path="/telemetry-component" component={TelemetryComponent} />
-            <Route path="/camera-component" component={CameraComponent} />
+            <Route path="/camera-component" render={()=> <CameraComponent sensors ={sensors}/>}/>
             <div style={{ position: "fixed", bottom: "0", width: "100%" }}>
               <Navbar />
             </div>

@@ -9,7 +9,10 @@ interface DataPacket {
     voltage: boolean;
     voltages: number;
     current: number;
-    camera1:string;
+    camera1: string;
+    camera2: string;
+    camera3: string;
+    camera4: string;
 }
 
 export default DataPacket;
