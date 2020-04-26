@@ -93,6 +93,7 @@ const mapDispatchToProps = {
   openSocket
 };
 
+
 //@ts-ignore
 const connectedApp: any = compose(withStyles(styles),connect(mapStateToProps,mapDispatchToProps))(App);
 
