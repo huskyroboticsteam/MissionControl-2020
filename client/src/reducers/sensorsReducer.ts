@@ -17,14 +17,10 @@ const initialState = {
     bottom_left: 5,
     bottom_right: 5,
     arm: 5,
-
-  
     camera1: 'https://image.shutterstock.com/image-vector/sample-speech-bubble-sign-banner-260nw-1475723558.jpg',
     camera2: 'https://image.shutterstock.com/image-vector/sample-speech-bubble-sign-banner-260nw-1475723558.jpg',
     camera3: 'https://image.shutterstock.com/image-vector/sample-speech-bubble-sign-banner-260nw-1475723558.jpg',
     camera4: 'https://image.shutterstock.com/image-vector/sample-speech-bubble-sign-banner-260nw-1475723558.jpg',
-    voltages: 100,
-    current: 20,
   }
 };
 

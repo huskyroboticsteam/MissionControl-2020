@@ -9,7 +9,6 @@ interface DataPacket {
     voltage: boolean;
     voltages: number;
     current: number;
-    camera1:string;
     front_left: number;
     front_right: number;
     bottom_left: number;

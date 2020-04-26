@@ -71,7 +71,7 @@ class App extends React.Component<AppProps> {
             <Route path="/main-component" component={MainComponent} />
             <Route path="/arm-component" component={ArmComponent} />
             <Route path="/science-component" component={ScienceComponent} />
-            <Route path="/telemetry-component" component={TelemetryComponent} />
+            <Route path="/telemetry-component"  render={()=> <TelemetryComponent sensors ={sensors}/>}/>
             <Route path="/camera-component" render={()=> <CameraComponent sensors ={sensors}/>}/>
             <div style={{ position: "fixed", bottom: "0", width: "100%" }}>
               <Navbar />
