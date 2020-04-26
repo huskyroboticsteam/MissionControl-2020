@@ -8,7 +8,9 @@ import "./camera-component.css";
 import DataPacket from "../types";
 
 // rename photoupdates
-type CameraProps = {};
+type CameraProps = {
+  sensors: DataPacket;
+};
 
 const divStyle = {
   display: "flex",
@@ -22,12 +24,16 @@ class CameraComponent extends React.Component<CameraProps> {
     return (
       <div>
         <div style={divStyle}>
-          <PhotoUpdate1 />
-          <PhotoUpdate2 />
+          <PhotoUpdate1 
+          cameraDummy={this.props.sensors.camera1}/>
+          <PhotoUpdate2 
+          cameraDummy={this.props.sensors.camera2}/>
         </div>
         <div style={divStyle}>
-          <PhotoUpdate3 />
-          <PhotoUpdate4 />
+          <PhotoUpdate3 
+          cameraDummy={this.props.sensors.camera3}/>
+          <PhotoUpdate4 
+          cameraDummy={this.props.sensors.camera4}/>
         </div>
       </div>
     );

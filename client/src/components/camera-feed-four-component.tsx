@@ -1,19 +1,11 @@
 import * as React from "react";
-import { SSL_OP_CISCO_ANYCONNECT } from "constants";
-import { any } from "prop-types";
 import Fullscreen from "react-full-screen";
 import "./photo.css";
-import { ImageGroup, Image } from "react-fullscreen-image";
-import { Component } from "react";
-import { runInThisContext } from "vm";
 
-// update picture
-// figure out how to stop "stopmotion" when leaving fullscreen
-// add timer to picture display
-// added fullscreen option, now make it to separate camera streams
-// fix resolution of images
-
-type PhotoUpdateProps = {};
+// cameraFeed: string;
+type PhotoUpdateProps = {
+  cameraDummy: string;
+};
 interface FullState {
   isFull: boolean;
 }
@@ -22,7 +14,7 @@ class PhotoUpdate4 extends React.Component<PhotoUpdateProps, FullState> {
   constructor(props) {
     super(props);
     this.state = {
-      isFull: false
+      isFull: false,
     };
   }
 
@@ -39,8 +31,6 @@ class PhotoUpdate4 extends React.Component<PhotoUpdateProps, FullState> {
   };
 
   render() {
-    const cameraDummy =
-      "https://image.shutterstock.com/image-vector/sample-speech-bubble-sign-banner-260nw-1475723558.jpg";
     return (
       <div className="container">
         <button onClick={this.goFull}>Arm Camera</button>
@@ -48,10 +38,11 @@ class PhotoUpdate4 extends React.Component<PhotoUpdateProps, FullState> {
           enabled={this.state.isFull}
           onChange={isFull => this.setState({ isFull })}
         >
-          <img src={cameraDummy} alt="sample"onClick={this.cancelFull} />
+          <img src={this.props.cameraDummy} alt="sample"onClick={this.cancelFull} />
         </Fullscreen>
       </div>
     );
   }
 }
 export default PhotoUpdate4;
+
