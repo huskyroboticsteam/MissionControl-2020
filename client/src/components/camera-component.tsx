@@ -1,19 +1,17 @@
-import { Typography, CssBaseline, withStyles, Theme } from "@material-ui/core";
 import * as React from "react";
-import { connect } from "react-redux";
-import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 import PhotoUpdate1 from "./camera-feed-one-component";
 import PhotoUpdate2 from "./camera-feed-two-component";
 import PhotoUpdate3 from "./camera-feed-three-component";
 import PhotoUpdate4 from "./camera-feed-four-component";
 import "./camera-component.css";
+import DataPacket from "../types";
 
 // rename photoupdates
 type CameraProps = {};
 
 const divStyle = {
-  display: 'flex',
+  display: "flex",
   margin: "100px",
   justifyContent: "space-between"
 };

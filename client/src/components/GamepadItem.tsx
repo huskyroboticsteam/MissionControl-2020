@@ -67,6 +67,15 @@ export default class GamepadItem extends React.Component<GamepadProps, any> {
 
   render() {
     var gamepad = this.props.gamepad;
+    // gamepad.axes[0] = (left = -1, right = 1), gamepad.axes[1] = (forward = -1, backward = 1)
+    // expected values = (left = 1, right = -1, forward = 1, backward = -1)
+    var motor = {
+      type: "drive",
+      forward_backward: gamepad == null || gamepad == undefined ? 0 :  this.props.gamepad.axes[1],
+      left_right: gamepad == null || gamepad == undefined ? 0 :  this.props.gamepad.axes[0]
+    }
+
+    
     if (gamepad && gamepad as Gamepad) {
       return (
         <div className="gamepad">
@@ -74,7 +83,7 @@ export default class GamepadItem extends React.Component<GamepadProps, any> {
             <span className="icon">{this.props.index + 1} </span>
             <span>{gamepad.id}</span>
           </h2>
-
+          {console.log(JSON.stringify(motor))}
           <ul className="info">
             <AxisItem label="INDEX" value={gamepad.index} />
             <AxisItem className="med" label="CONNECTED" value={gamepad.connected ? "Yes" : "No"} />

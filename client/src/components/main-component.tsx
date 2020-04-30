@@ -6,6 +6,8 @@ import openSocket from "../actions/socket/openSocket";
 import MapTest from "./map";
 import CheckboxesGroup from "./tasklist-component";
 import DataPacket from "../types";
+import MapCheck from "./testmap";
+
 
 type MainProps = {
   sensors: DataPacket;

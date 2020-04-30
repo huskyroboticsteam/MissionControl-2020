@@ -17,7 +17,7 @@ class ScienceComponent extends React.Component<ScienceProps> {
     render() {
         return (
             <div style={{clear:'both', marginLeft: "50px"}}>
-                <h1>this is the science page</h1>
+                
                 <div style={{margin: "30px", float: "left", height:"450px"}}>
                 <CO2graph/>
                 </div>

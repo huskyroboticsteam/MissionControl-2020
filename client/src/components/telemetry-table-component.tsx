@@ -10,6 +10,47 @@ import Paper from '@material-ui/core/Paper';
 import ErrorIcon from "@material-ui/icons/Error";
 import DoneIcon from "@material-ui/icons/Done";
 
+
+
+type TelemetryProps = {
+  voltages: number;
+  current: number;
+}
+
+function checkVoltage(props) {
+  if (props.Voltage==true) {
+      return (
+          <div>
+            <DoneIcon/>
+          </div>
+        );
+  } 
+  else {
+      return (
+          <div>
+            <ErrorIcon/>
+          </div>
+        );
+  }
+}
+
+function checkCurrent(props) {
+  if (props.Current>=100) {
+      return (
+          <div>
+            <DoneIcon/>
+          </div>
+        );
+  } 
+  else {
+      return (
+          <div>
+            <ErrorIcon/>
+          </div>
+        );
+  }
+}
+
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -32,7 +73,8 @@ const rows = [
 
 export default function TelemetryTableComponent() {
   const classes = useStyles();
-
+//class TelemetryTableComponent extends React.Component<TelemetryProps>{
+  //render() { 
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
@@ -59,4 +101,6 @@ export default function TelemetryTableComponent() {
       </Table>
     </TableContainer>
   );
-}
+  }
+
+//export default TelemetryTableComponent;

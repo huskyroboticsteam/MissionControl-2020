@@ -16,6 +16,7 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import "./app.css";
 import DataPacket from "../types";
 import ControllerComponent from "./controller-component";
+import 'mapbox-gl/dist/mapbox-gl.css';
 const backTheme = createMuiTheme({
   palette: {
     background: {
@@ -59,8 +60,6 @@ class App extends React.Component<AppProps> {
                 width: "100%"
               }}
             >
-              <DashComponent sensors={sensors} />
-              <ControllerComponent/>
             </div>
             <div style={{clear: "both", height: "0px", padding: '0px'}}></div>  
             <Typography className={classes.rawData}>

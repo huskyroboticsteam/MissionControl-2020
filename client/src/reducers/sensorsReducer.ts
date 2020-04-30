@@ -11,7 +11,12 @@ const initialState = {
     z: 50,
     voltage: true, 
     latitude: 47.6498,
-    longitude: -122.3038
+    longitude: -122.3038,
+    voltages: 100,
+    current: 20, 
+
+  
+    camera1: 'https://image.shutterstock.com/image-vector/sample-speech-bubble-sign-banner-260nw-1475723558.jpg',
   }
 };
 

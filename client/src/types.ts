@@ -9,6 +9,9 @@ interface DataPacket {
     voltage: boolean;
     latitude: number;
     longitude: number;
+    voltages: number;
+    current: number;
+    camera1:string;
 }
 
 export default DataPacket;
