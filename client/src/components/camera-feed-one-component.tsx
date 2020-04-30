@@ -3,7 +3,9 @@ import Fullscreen from "react-full-screen";
 import "./photo.css";
 
 // cameraFeed: string;
-type PhotoUpdateProps = {};
+type PhotoUpdateProps = {
+  cameraDummy: string;
+};
 interface FullState {
   isFull: boolean;
 }
@@ -12,7 +14,7 @@ class PhotoUpdate1 extends React.Component<PhotoUpdateProps, FullState> {
   constructor(props) {
     super(props);
     this.state = {
-      isFull: false
+      isFull: false,
     };
   }
 
@@ -29,8 +31,6 @@ class PhotoUpdate1 extends React.Component<PhotoUpdateProps, FullState> {
   };
 
   render() {
-    const cameraDummy =
-      "https://image.shutterstock.com/image-vector/sample-speech-bubble-sign-banner-260nw-1475723558.jpg";
     return (
       <div className="container">
         <button onClick={this.goFull}>Arm Camera</button>
@@ -38,10 +38,11 @@ class PhotoUpdate1 extends React.Component<PhotoUpdateProps, FullState> {
           enabled={this.state.isFull}
           onChange={isFull => this.setState({ isFull })}
         >
-          <img src={cameraDummy} alt="sample"onClick={this.cancelFull} />
+          <img src={this.props.cameraDummy} alt="sample"onClick={this.cancelFull} />
         </Fullscreen>
       </div>
     );
   }
 }
 export default PhotoUpdate1;
+

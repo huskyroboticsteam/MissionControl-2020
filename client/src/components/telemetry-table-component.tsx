@@ -9,47 +9,15 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import ErrorIcon from "@material-ui/icons/Error";
 import DoneIcon from "@material-ui/icons/Done";
+import DataPacket from "../types";
 
 
 
-type TelemetryProps = {
-  voltages: number;
-  current: number;
+type TelemetryTableProps = {
+     sensors: DataPacket;
 }
 
-function checkVoltage(props) {
-  if (props.Voltage==true) {
-      return (
-          <div>
-            <DoneIcon/>
-          </div>
-        );
-  } 
-  else {
-      return (
-          <div>
-            <ErrorIcon/>
-          </div>
-        );
-  }
-}
 
-function checkCurrent(props) {
-  if (props.Current>=100) {
-      return (
-          <div>
-            <DoneIcon/>
-          </div>
-        );
-  } 
-  else {
-      return (
-          <div>
-            <ErrorIcon/>
-          </div>
-        );
-  }
-}
 
 const useStyles = makeStyles({
   table: {
@@ -64,24 +32,23 @@ function createData(motor, status, current, voltage) {
 
 // integrate nominal/sensor data into table
 const rows = [
-  createData('Front Left', <DoneIcon/>, 6.0, 24),
+  createData('Front Left', <DoneIcon/>, 6, 24),
   createData('Front Right', <ErrorIcon/>, 9.0, 37),
   createData('Bottom Left', <DoneIcon/>, 24, 24),
   createData('Bottom Right', <DoneIcon/>, 3.7, 673),
   createData("Arm", <DoneIcon/>, 16.0, 49),
 ];
 
-export default function TelemetryTableComponent() {
+export default function TelemetryTableComponent(TelemetryTableProps) {
   const classes = useStyles();
-//class TelemetryTableComponent extends React.Component<TelemetryProps>{
-  //render() { 
+  
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Motor</TableCell>
-            <TableCell align="right">Status</TableCell>
+            <TableCell align="right">Status}</TableCell>
             <TableCell align="right">Current&nbsp;(A)</TableCell>
             <TableCell align="right">Voltage&nbsp;(V)</TableCell>
           </TableRow>
@@ -101,6 +68,42 @@ export default function TelemetryTableComponent() {
       </Table>
     </TableContainer>
   );
+  }
+
+
+
+  function checkVoltage(props) {
+    if (props.Voltage==true) {
+        return (
+            <div>
+              <DoneIcon/>
+            </div>
+          );
+    } 
+    else {
+        return (
+            <div>
+              <ErrorIcon/>
+            </div>
+          );
+    }
+  }
+  
+  function checkCurrent(props) {
+    if (props.Current>=100) {
+        return (
+            <div>
+              <DoneIcon/>
+            </div>
+          );
+    } 
+    else {
+        return (
+            <div>
+              <ErrorIcon/>
+            </div>
+          );
+    }
   }
 
 //export default TelemetryTableComponent;

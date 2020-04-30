@@ -11,7 +11,15 @@ interface DataPacket {
     longitude: number;
     voltages: number;
     current: number;
-    camera1:string;
+    front_left: number;
+    front_right: number;
+    bottom_left: number;
+    bottom_right: number;
+    arm: number;
+    camera1: string;
+    camera2: string;
+    camera3: string;
+    camera4: string;
 }
 
 export default DataPacket;
