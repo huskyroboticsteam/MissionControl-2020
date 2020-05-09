@@ -29,6 +29,7 @@ class ArmComponent extends React.Component<ArmProps, any> {
   render() {
     return (
       <div>
+        <GamepadList />
         <CanvasTesting />
         <CheckboxesGroup />
         <form onSubmit={this.handleSubmit}>
@@ -40,8 +41,7 @@ class ArmComponent extends React.Component<ArmProps, any> {
               onChange={this.handleChange}
             />
           </label>
-        </form>
-        <GamepadList />
+        </form>   
       </div>
     );
   }

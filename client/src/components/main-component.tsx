@@ -7,7 +7,7 @@ import MapTest from "./map";
 import CheckboxesGroup from "./tasklist-component";
 import DataPacket from "../types";
 import MapCheck from "./testmap";
-
+import RequestButton from "./request-button-component";
 
 type MainProps = {
   sensors: DataPacket;
@@ -22,7 +22,8 @@ class MainComponent extends React.Component<MainProps> {
     return (
       <div>
       <MapTest latitude={this.props.sensors.latitude} longitude={this.props.sensors.longitude}/>
-      </div>
+      {/* <RequestButton/>; */}
+=      </div>
     );
   }
 }
