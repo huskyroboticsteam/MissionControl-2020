@@ -20,7 +20,7 @@ class TelemetryComponent extends React.Component<TelemetryProps> {
             <div style={{clear:'both'}}>
                 <h1></h1>
                 <div style={{padding:'20px'}}>
-                <TelemetryTableComponent sensors ={this.props.sensors}/>
+                <TelemetryTableComponent/>
                 </div>
                
             </div>

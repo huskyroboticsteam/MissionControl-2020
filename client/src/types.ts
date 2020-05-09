@@ -20,6 +20,8 @@ interface DataPacket {
     camera2: string;
     camera3: string;
     camera4: string;
+    x_s: number;
+    y_s: number;
 }
 
 export default DataPacket;

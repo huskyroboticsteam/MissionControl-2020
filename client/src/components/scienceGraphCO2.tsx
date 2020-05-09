@@ -5,18 +5,21 @@ import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 //import {render} from 'react-dom'
+import DataPacket from "../types";
 
 
 var Component = React.Component;
 
 
-var dps = [{x: 1, y: 10}, {x: 2, y: 13}, {x: 3, y: 18}, {x: 4, y: 20}];   //dataPoints.
+var dps = [{x: 6, y: 10}];   //dataPoints.
 var xVal = dps.length + 1;
 var yVal = 15;
 var updateInterval = 3000;
 var interval;
 
-type CO2graphProps= {};
+type CO2graphProps= {
+  sensors: DataPacket;
+};
 
 class CO2graph extends Component<CO2graphProps> {
     chart: CanvasJSChart;
@@ -47,7 +50,7 @@ class CO2graph extends Component<CO2graphProps> {
           },
           data: [{
             type: "line",
-            dataPoints : dps,
+            dataPoints : [{x: this.props.sensors.x_s, y: this.props.sensors.y_s}],
         }]
        }
        return (
