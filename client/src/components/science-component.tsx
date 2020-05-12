@@ -25,7 +25,7 @@ class ScienceComponent extends React.Component<ScienceProps> {
                 <CO2graph sensors={sensors}/>
                 </div>
                 <div style={{margin: "30px", float: "left", height:"450px"}}>
-                <TVOCgraph/>
+                <TVOCgraph sensors={sensors}/>
                 </div>
                 <div style={{margin: "30px", float: "left"}}>
                         <LinearRailToggle/>

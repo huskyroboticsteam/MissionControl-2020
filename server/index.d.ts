@@ -20,4 +20,6 @@ interface DataPacket {
     camera4: string;
     x_s: number;
     y_s: number;
+    x_tvoc: number;
+    y_tvoc: number;
 }

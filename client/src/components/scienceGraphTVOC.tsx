@@ -4,6 +4,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
+import DataPacket from "../types";
 
 
 var Component = React.Component;
@@ -13,7 +14,9 @@ var yVal = 15;
 var updateInterval = 3000;
 var interval;
 
-type TVOCgraphProps= {}
+type TVOCgraphProps= {
+  sensors: DataPacket;
+}
 
 class TVOCgraph extends React.Component<TVOCgraphProps> {
     chart: CanvasJSChart;
@@ -45,7 +48,7 @@ class TVOCgraph extends React.Component<TVOCgraphProps> {
           },
           data: [{
             type: "line",
-            dataPoints : dps,
+            dataPoints : [{x: this.props.sensors.x_tvoc, y: this.props.sensors.y_tvoc}],
         }]
        }
        return (
