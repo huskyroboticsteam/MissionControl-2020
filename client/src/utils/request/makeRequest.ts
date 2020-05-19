@@ -1,10 +1,18 @@
 import axios from "axios";
 import { SERVER_URL } from "../../api/constants";
 
-
-export default (route, handleSuccess, handleError) => {
+export default (
+  route: any,
+  body: any,
+  handleSuccess: () => void,
+  handleError: (arg0: string) => void
+) => {
   axios
-    .post(`${SERVER_URL}${route}`)
+    .post(`${SERVER_URL}${route}`, body, {
+      headers: {
+        "Content-Type": "text/plain"
+      }
+    })
     .then(res => {
       handleSuccess();
     })
