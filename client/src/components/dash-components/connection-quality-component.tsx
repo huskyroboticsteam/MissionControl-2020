@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./connection-quality-component.css";
 
 type ConnectionProps = {
   quality: Number;
@@ -31,6 +30,19 @@ const gradient: string[] = [
   "#33FF00",
   "#00FF00"
 ];
+
+const numberStyle = {
+  borderRadius: 2,
+  width: "20%",
+  verticalAlign: "middle",
+  height: "%",
+  borderStyle: "solid",
+  borderColor: "black",
+  borderWidth: "thin",
+  fontSize: "8px",
+  fontWeight: "bold",
+} as React.CSSProperties;
+
 function connectionBar(bar: number, quality: Number): React.CSSProperties {
   return {
     borderRadius: 2,
@@ -56,6 +68,7 @@ class ConnectionQualityComponent extends React.Component<ConnectionProps> {
         <div style={connectionBar(8, this.props.quality)} />
         <div style={connectionBar(9, this.props.quality)} />
         <div style={connectionBar(10, this.props.quality)} />
+        <div style={numberStyle}>{this.props.quality}ms</div>
       </div>
     );
   }

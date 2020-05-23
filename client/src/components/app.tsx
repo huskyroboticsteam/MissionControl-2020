@@ -1,5 +1,6 @@
 import { Typography, CssBaseline, withStyles, Theme } from "@material-ui/core";
 import * as React from "react";
+import Snackbar from "@material-ui/core/Snackbar";
 import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
@@ -15,6 +16,8 @@ import { Route, HashRouter } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import "./app.css";
 import DataPacket from "../types";
+import ControllerComponent from "./controller-component";
+import 'mapbox-gl/dist/mapbox-gl.css';
 const backTheme = createMuiTheme({
   palette: {
     background: {
@@ -45,6 +48,7 @@ class App extends React.Component<AppProps> {
 
   render() {
     const { classes, nominal, sensors } = this.props;
+    
     return (
       <MuiThemeProvider theme={backTheme}>
         <HashRouter>
@@ -60,15 +64,16 @@ class App extends React.Component<AppProps> {
             >
               <DashComponent sensors={sensors} />
             </div>
+            <div style={{clear: "both", height: "0px", padding: '0px'}}></div>  
             <Typography className={classes.rawData}>
               {JSON.stringify(nominal)}
               {JSON.stringify(sensors)}
             </Typography>
-            <Route path="/main-component" component={MainComponent} />
+            <Route path="/main-component" render={(props) => <MainComponent {...props} sensors={sensors} />} />
             <Route path="/arm-component" component={ArmComponent} />
-            <Route path="/science-component" component={ScienceComponent} />
-            <Route path="/telemetry-component" component={TelemetryComponent} />
-            <Route path="/camera-component" component={CameraComponent} />
+            <Route path="/science-component" render={()=> <ScienceComponent sensors={sensors}/>}/>
+            <Route path="/telemetry-component"  render={()=> <TelemetryComponent sensors={sensors}/>}/>
+            <Route path="/camera-component" render={()=> <CameraComponent sensors={sensors}/>}/>
             <div style={{ position: "fixed", bottom: "0", width: "100%" }}>
               <Navbar />
             </div>
@@ -89,6 +94,7 @@ const mapStateToProps = (state: any) => {
 const mapDispatchToProps = {
   openSocket
 };
+
 
 //@ts-ignore
 const connectedApp: any = compose(withStyles(styles),connect(mapStateToProps,mapDispatchToProps))(App);

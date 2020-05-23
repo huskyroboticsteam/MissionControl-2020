@@ -4,16 +4,26 @@ import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 import MapTest from "./map";
+import CheckboxesGroup from "./tasklist-component";
+import DataPacket from "../types";
+import MapCheck from "./testmap";
+//import RequestButton from "./request-button-component";
 
-type MainProps = {};
+type MainProps = {
+  sensors: DataPacket;
+};
+
 // figure out what map we will use and how to integrate it
+//class MainComponent extends React.Component {
 class MainComponent extends React.Component<MainProps> {
   // this is the Main page
   render() {
+    //const {sensors} = this.props;
     return (
       <div>
-        <MapTest />
-      </div>
+      <MapTest latitude={this.props.sensors.latitude} longitude={this.props.sensors.longitude}/>
+      {/* <RequestButton/> */}
+     </div>
     );
   }
 }
