@@ -6,6 +6,7 @@ This repo requires the installation of NodeJS and ReactJS. After cloning the rep
 
 
 NodeJS: https://nodejs.org/en/
+
 ReactJS: https://reactjs.org/
 
 # Running Mission Control
@@ -15,9 +16,13 @@ Navigate to the client directory and type into the terminal 'npm start.' This sh
 Mission Control is broken down into components. The components that are their own page are:
 
 Main
+
 Arm
+
 Camera
+
 Science
+
 Telemetry
 
 
