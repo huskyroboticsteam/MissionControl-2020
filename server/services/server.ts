@@ -43,7 +43,7 @@ app.ws("/info", function(ws) {
 });
 
 app.post("/", function(req, res) {
-  commandService.write(JSON.stringify(req.body));
+  commandService.write(req.body);
   res.sendStatus(200);
 });
 
