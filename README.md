@@ -2,8 +2,17 @@
 Husky Robotics Mission Control Repo
 
 # Setup
-This repo requires the installation of NodeJS and ReactJS. After cloning the repo onto your local machine, navigate to the client folder and type `npm install` in the terminal. This should install the rest of the packages required.
 
+This repo requires the installation of NodeJS and ReactJS.
+
+On Ubuntu, to install the latest version of Node, try this:
+
+```
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt install nodejs
+```
+
+After cloning the repo onto your local machine, navigate to the client folder and type `npm install` in the terminal. This should install the rest of the packages required.
 
 NodeJS: https://nodejs.org/en/
 
