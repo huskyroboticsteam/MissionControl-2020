@@ -54,7 +54,7 @@
     "react-native-paper": "^3.11.0",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.1",
+    "react-scripts": "^3.4.3",
     "react-three-fiber": "^4.2.20",
     "react-use-gesture": "^7.0.15",
     "recompose": "^0.30.0",
