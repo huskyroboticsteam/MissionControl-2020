@@ -7,7 +7,7 @@ import OfflineBoltIcon from "@material-ui/icons/OfflineBolt";
 import CameraIcon from "@material-ui/icons/Camera";
 import EcoIcon from "@material-ui/icons/Eco";
 import PhoneIcon from "@material-ui/icons/Phone";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const styles = {
   stickToBottom: {
@@ -86,4 +86,4 @@ class Navbar extends React.Component {
     );
   }
 }
-export default withRouter(Navbar);
+export default Navbar;
