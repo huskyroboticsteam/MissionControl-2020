@@ -51,10 +51,10 @@ function updateDrive() {
         "/",
         JSON.stringify(request),
         () => {
-            alert("sent");
         },
         (error) => {
-            alert("Error sending command: " + error);
+            // TODO: fix bug that causes this to run even when working correctly
+            // alert("Error sending command: " + error);
         }
     );
 }
