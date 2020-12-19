@@ -9,14 +9,18 @@ export function addKeyboardListeners() {
 
 function onKeyPress(event) {
     const key = String.fromCharCode(event.keyCode);
-    keys[key] = true;
-    updateDrive();
+    if (!keys[key]) {
+      keys[key] = true;
+      updateDrive();
+    }
 }
 
 function onKeyRelease(event) {
     const key = String.fromCharCode(event.keyCode);
-    keys[key] = false;
-    updateDrive();
+    if (keys[key]) {
+      keys[key] = false;
+      updateDrive();
+    }
 }
 
 function updateDrive() {
@@ -26,13 +30,13 @@ function updateDrive() {
         y += 0.5;
     }
     if (keys["A"]) {
-        x -= 0.5;
+        x += 0.5;
     }
     if (keys["S"]) {
         y -= 0.5;
     }
     if (keys["D"]) {
-        x += 0.5;
+        x -= 0.5;
     }
     if (keys["V"]) {
         x *= 2.0;
