@@ -18,6 +18,10 @@ import "./app.css";
 import DataPacket from "../types";
 import ControllerComponent from "./controller-component";
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { addKeyboardListeners } from "../keyboard-controls";
+
+addKeyboardListeners();
+
 const backTheme = createMuiTheme({
   palette: {
     background: {
@@ -48,7 +52,7 @@ class App extends React.Component<AppProps> {
 
   render() {
     const { classes, nominal, sensors } = this.props;
-    
+
     return (
       <MuiThemeProvider theme={backTheme}>
         <HashRouter>
@@ -64,16 +68,16 @@ class App extends React.Component<AppProps> {
             >
               <DashComponent sensors={sensors} />
             </div>
-            <div style={{clear: "both", height: "0px", padding: '0px'}}></div>  
+            <div style={{ clear: "both", height: "0px", padding: '0px' }}></div>
             <Typography className={classes.rawData}>
               {JSON.stringify(nominal)}
               {JSON.stringify(sensors)}
             </Typography>
             <Route path="/main-component" render={(props) => <MainComponent {...props} sensors={sensors} />} />
             <Route path="/arm-component" component={ArmComponent} />
-            <Route path="/science-component" render={()=> <ScienceComponent sensors={sensors}/>}/>
-            <Route path="/telemetry-component"  render={()=> <TelemetryComponent sensors={sensors}/>}/>
-            <Route path="/camera-component" render={()=> <CameraComponent sensors={sensors}/>}/>
+            <Route path="/science-component" render={() => <ScienceComponent sensors={sensors} />} />
+            <Route path="/telemetry-component" render={() => <TelemetryComponent sensors={sensors} />} />
+            <Route path="/camera-component" render={() => <CameraComponent sensors={sensors} />} />
             <div style={{ position: "fixed", bottom: "0", width: "100%" }}>
               <Navbar />
             </div>
@@ -97,6 +101,6 @@ const mapDispatchToProps = {
 
 
 //@ts-ignore
-const connectedApp: any = compose(withStyles(styles),connect(mapStateToProps,mapDispatchToProps))(App);
+const connectedApp: any = compose(withStyles(styles), connect(mapStateToProps, mapDispatchToProps))(App);
 
 export default connectedApp;
