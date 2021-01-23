@@ -28,7 +28,7 @@ const armMotors = ["arm_base", "shoulder", "elbow", "forearm", "diffleft",
     "diffright", "hand"];
 
 const pressedKeys = new Map();
-// Storing the pwm values allows us to only necessary arm motor requests.
+// Storing the PWM values allows us to only necessary arm motor requests.
 const armPwmValues = new Array(7).fill(0.0);
 
 export function addKeyboardListeners() {
@@ -37,8 +37,8 @@ export function addKeyboardListeners() {
 }
 
 function onKeyPress(event) {
-    // Multiple events can be fired for just one key press if the user the
-    // key down, so we need to check if keys already contains the key.
+    // Multiple events can be fired for just one key press if the user holds the
+    // key down, so we need to check if the key is already pressed.
     if (!pressedKeys[event.key]) {
         pressedKeys[event.key] = true;
         if (driveControlKeys.includes(event.key)) {
