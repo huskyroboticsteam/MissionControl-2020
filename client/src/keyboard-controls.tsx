@@ -39,12 +39,15 @@ export function addKeyboardListeners() {
 function onKeyPress(event) {
     // Multiple events can be fired for just one key press if the user holds the
     // key down, so we need to check if the key is already pressed.
+
+    if (driveControlKeys.includes(event.key)) {
+      // preventDefault() prevents users from scrolling through the page when
+      // moving the robot using arrow keys.
+      event.preventDefault();
+    }
     if (!pressedKeys[event.key]) {
         pressedKeys[event.key] = true;
         if (driveControlKeys.includes(event.key)) {
-            // preventDefault() prevents users from scrolling through the page when
-            // moving the robot using arrow keys.
-            event.preventDefault();
             updateDrive();
         } else if (armControlKeys.includes(event.key)) {
             updateArm();
