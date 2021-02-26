@@ -23,8 +23,14 @@ const start = async function() {
 };
 
 function write(message) {
+  const len = message.length;
+  // Little-endian encoding of the length of the message
+  const len_buf = Buffer.from([len & 255, (len >> 8) & 255, (len >> 16) & 255, (len >> 24) & 255]);
+  const msg_buf = Buffer.from(message);
   if (connection) {
-    connection.write(message);
+    // Both Buffers *must* be sent in a single call to write(), else they might interleave,
+    // which the rover would have no chance of decoding.
+    connection.write(Buffer.concat([len_buf, msg_buf]));
   } else {
     console.log("CANNOT WRITE TO ROVER, NO CONNECTION AVAILABLE");
   }
