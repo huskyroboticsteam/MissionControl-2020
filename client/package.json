@@ -27,7 +27,7 @@
     "@types/react-redux": "^7.1.9",
     "@types/recompose": "^0.30.7",
     "antd": "^3.26.18",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-util-is": "^1.0.2",
     "css-loader": "^3.6.0",
     "fzero": "^0.2.4",
