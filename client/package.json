@@ -63,7 +63,7 @@
     "redux-thunk": "^2.3.0",
     "style-loader": "^1.2.1",
     "svg-gauge": "^1.0.5",
-    "three": "^0.113.2",
+    "three": "^0.125.0",
     "typescript": "^3.9.7"
   },
   "devDependencies": {
