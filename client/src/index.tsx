@@ -8,10 +8,12 @@ import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './components/app';
 import configureStore from './configureStore';
+import { addKeyboardListeners } from './keyboard-controls';
 
 const initialState = {};
 const history = createHistory();
 const store = configureStore(initialState, history);
+addKeyboardListeners();
 
 // Global Theme
 const theme = createMuiTheme({

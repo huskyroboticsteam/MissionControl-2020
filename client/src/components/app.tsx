@@ -18,9 +18,6 @@ import "./app.css";
 import DataPacket from "../types";
 import ControllerComponent from "./controller-component";
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { addKeyboardListeners } from "../keyboard-controls";
-
-addKeyboardListeners();
 
 const backTheme = createMuiTheme({
   palette: {
