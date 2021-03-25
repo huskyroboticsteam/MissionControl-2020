@@ -25,10 +25,20 @@ import { RoverCommands } from "./rover-commands";
 /** Stores which keys are currently pressed. */
 const pressedKeys: Map<string, boolean> = new Map();
 
+const motorSensitivity: Map<Motor, number> = new Map();
+
+for (const motor of Object.values(Motor)) {
+    motorSensitivity.set(motor, 1.0);
+}
+
 /** Invoked in index.tsx to add event listeners. */
 export function addKeyboardListeners(): void {
     document.addEventListener("keydown", onKeyPress);
     document.addEventListener("keyup", onKeyRelease);
+}
+
+export function setMotorSensitivity(motor: Motor, sensitivity: number) {
+    motorSensitivity.set(motor, sensitivity);
 }
 
 function onKeyPress(event: KeyboardEvent): void {
@@ -94,11 +104,11 @@ function updateDrive(): void {
  * Sends arm-related commands to the rover based on user input.
  */
 function updateArm(): void {
-    RoverCommands.setMotorPower(Motor.ARM_BASE, powerFromKeys("q", "a"));
-    RoverCommands.setMotorPower(Motor.SHOULDER, powerFromKeys("w", "s"));
-    RoverCommands.setMotorPower(Motor.ELBOW, powerFromKeys("e", "d"));
-    RoverCommands.setMotorPower(Motor.FOREARM, powerFromKeys("r", "f"));
-    RoverCommands.setMotorPower(Motor.HAND, powerFromKeys("u", "j"));
+    RoverCommands.setMotorPower(Motor.ARM_BASE, powerFromKeys("q", "a") * motorSensitivity.get(Motor.ARM_BASE));
+    RoverCommands.setMotorPower(Motor.SHOULDER, powerFromKeys("w", "s") * motorSensitivity.get(Motor.SHOULDER));
+    RoverCommands.setMotorPower(Motor.ELBOW, powerFromKeys("e", "d") * motorSensitivity.get(Motor.ELBOW));
+    RoverCommands.setMotorPower(Motor.FOREARM, powerFromKeys("r", "f") * motorSensitivity.get(Motor.FOREARM));
+    RoverCommands.setMotorPower(Motor.HAND, powerFromKeys("u", "j") * motorSensitivity.get(Motor.HAND));
     updateWrist();
 }
 
