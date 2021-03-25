@@ -1,5 +1,5 @@
 import React from 'react';
-import { setMotorSensitivity } from '../keyboard-controls';
+import { setMotorSensitivity, update } from '../keyboard-controls';
 import { Motor } from '../motor';
 
 interface MotorSensitivitySliderProps {
@@ -25,6 +25,7 @@ export class MotorSensitivitySlider extends React.Component<MotorSensitivitySlid
         this.setState({
             sensitivity: sensitivity
         });
+        update();
     }
 
     render() {

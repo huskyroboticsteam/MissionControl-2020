@@ -66,7 +66,7 @@ function keyPressed(key: string): boolean {
 /**
  * Sends commands to the rover based on user input.
  */
-function update(): void {
+export function update(): void {
     updateDrive();
     updateArm();
 }
