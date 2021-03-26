@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Motor } from "../motor";
+import { Motor } from "../../motor";
 import { MotorSensitivitySlider } from "./motor-sensitivity-slider";
 export default function MotorSliderList() {
     return(

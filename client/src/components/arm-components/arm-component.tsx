@@ -1,9 +1,9 @@
 import * as React from "react";
-import CheckboxesGroup from "./tasklist-component";
-import GamepadList from "./GamepadList";
+import CheckboxesGroup from "../tasklist-component";
+import GamepadList from "../GamepadList";
 import CanvasTesting from "./arm-test-component";
 import MotorSliderList from "./motor-slider-list";
-import {setMotorSensitivity} from "../keyboard-controls";
+import {setMotorSensitivity} from "../../keyboard-controls";
 
 type ArmProps = {
   value: number;

@@ -1,6 +1,6 @@
 import React from 'react';
-import { setMotorSensitivity, update } from '../keyboard-controls';
-import { Motor } from '../motor';
+import { setMotorSensitivity, update } from '../../keyboard-controls';
+import { Motor } from '../../motor';
 
 interface MotorSensitivitySliderProps {
     motor: Motor;

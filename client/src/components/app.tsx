@@ -6,7 +6,7 @@ import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 import Navbar from "./navbar";
 import MainComponent from "./main-component";
-import ArmComponent from "./arm-component";
+import ArmComponent from "./arm-components/arm-component";
 import CameraComponent from "./camera-component";
 import TelemetryComponent from "./telemetry-component";
 import ScienceComponent from "./science-component";
