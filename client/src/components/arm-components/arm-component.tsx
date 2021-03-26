@@ -3,7 +3,7 @@ import CheckboxesGroup from "../tasklist-component";
 import GamepadList from "../GamepadList";
 import CanvasTesting from "./arm-test-component";
 import MotorSliderList from "./motor-slider-list";
-import {setMotorSensitivity} from "../../keyboard-controls";
+import "./arm-component.css"
 
 type ArmProps = {
   value: number;
@@ -31,10 +31,17 @@ class ArmComponent extends React.Component<ArmProps, any> {
 
   render() {
     return (
-      <div>
-        <GamepadList />
-        <CanvasTesting />
-        <CheckboxesGroup />
+      <div className="arm-component">
+        <div className="sub-component">
+          <GamepadList />
+          <CanvasTesting />
+        </div>
+        <div className="sub-component">
+          <CheckboxesGroup />
+        </div>
+        <div className="sub-component">
+          <MotorSliderList />
+        </div>
         <form onSubmit={this.handleSubmit}>
           <label>
             Input Angle here:
@@ -45,14 +52,6 @@ class ArmComponent extends React.Component<ArmProps, any> {
             />
           </label>
         </form>
-        <div style={{
-            display: "flex",
-            float: "right",
-            margin: "0px",
-            padding: "20px"
-          }}>
-          <MotorSliderList />
-        </div>
       </div>
     );
   }
