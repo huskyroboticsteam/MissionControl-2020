@@ -7,6 +7,7 @@ import Temperature from "./dash-components/temperature-component";
 import DataPacket from "../types";
 import CoordinatesComponent from "./dash-components/coordinates-component";
 import VoltageComponent from "./dash-components/voltage-component";
+import {stopStatusRef} from '../rover-commands';
 
 type DashProps = {
   sensors: DataPacket;
@@ -24,7 +25,7 @@ class DashComponent extends React.Component<DashProps> {
         }}
       >
         <div style={{ float: "left", padding: "10px", margin: "40px" }}>
-          <StopStatus />
+          <StopStatus ref={stopStatusRef} />
         </div>
         <div
           style={{
