@@ -3,6 +3,9 @@ import { ArmMotor } from "./arm-motor";
 import StopStatus from "./components/dash-components/stop-status";
 import makeRequest from "./utils/request/makeRequest";
 
+/**
+ * Reference to the StopStatus component that is set by its render() function.
+ */
 export const stopStatusRef: React.RefObject<StopStatus> = React.createRef();
 
 /** How often the client sends packets to the server. */
