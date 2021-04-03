@@ -15,7 +15,7 @@ class StopStatus extends React.Component<{}, {}> {
             return (
                 <div>
                     <h3>Status: <span style={{ color: "green" }}>operational</span></h3>
-                    <p>Press shift-space to disengage E-stop</p>
+                    <p>Press space to engage E-stop</p>
                 </div>
             );
         }
