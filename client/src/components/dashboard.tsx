@@ -1,6 +1,6 @@
 import React from "react";
 import ReactSpeedometer from "react-d3-speedometer";
-import StopButton from "./dash-components/stop-button";
+import StopStatus from "./dash-components/stop-status";
 import ConnectionQualityComponent from "./dash-components/connection-quality-component";
 import "./dash-components/dashboard.css";
 import Temperature from "./dash-components/temperature-component";
@@ -24,7 +24,7 @@ class DashComponent extends React.Component<DashProps> {
         }}
       >
         <div style={{ float: "left", padding: "10px", margin: "40px" }}>
-          <StopButton />
+          <StopStatus />
         </div>
         <div
           style={{
