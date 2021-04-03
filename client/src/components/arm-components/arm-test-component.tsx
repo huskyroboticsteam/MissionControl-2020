@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import BoxJoint from "./cube-test-component";
-import Sphere from "./sphere-test-component";
+import BoxJoint from "../cube-test-component";
+import Sphere from "../sphere-test-component";
 import { Canvas, useThree } from "react-three-fiber";
-import BoxJoint1 from "./cube2-test-component";
+import BoxJoint1 from "../cube2-test-component";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const CameraController = () => {

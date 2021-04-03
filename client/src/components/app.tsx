@@ -6,7 +6,7 @@ import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
 import Navbar from "./navbar";
 import MainComponent from "./main-component";
-import ArmComponent from "./arm-component";
+import ArmComponent from "./arm-components/arm-component";
 import CameraComponent from "./camera-component";
 import TelemetryComponent from "./telemetry-component";
 import ScienceComponent from "./science-component";
@@ -18,9 +18,6 @@ import "./app.css";
 import DataPacket from "../types";
 import ControllerComponent from "./controller-component";
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { addKeyboardListeners } from "../keyboard-controls";
-
-addKeyboardListeners();
 
 const backTheme = createMuiTheme({
   palette: {

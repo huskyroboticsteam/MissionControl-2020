@@ -1,7 +1,9 @@
 import * as React from "react";
-import CheckboxesGroup from "./tasklist-component";
-import GamepadList from "./GamepadList";
+import CheckboxesGroup from "../tasklist-component";
+import GamepadList from "../GamepadList";
 import CanvasTesting from "./arm-test-component";
+import MotorSliderList from "./motor-slider-list";
+import "./arm-component.css"
 
 type ArmProps = {
   value: number;
@@ -15,6 +17,7 @@ class ArmComponent extends React.Component<ArmProps, any> {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   handleChange(event) {
@@ -28,10 +31,17 @@ class ArmComponent extends React.Component<ArmProps, any> {
 
   render() {
     return (
-      <div>
-        <GamepadList />
-        <CanvasTesting />
-        <CheckboxesGroup />
+      <div className="arm-component">
+        <div className="sub-component">
+          <GamepadList />
+          <CanvasTesting />
+        </div>
+        <div className="sub-component">
+          <CheckboxesGroup />
+        </div>
+        <div className="sub-component">
+          <MotorSliderList />
+        </div>
         <form onSubmit={this.handleSubmit}>
           <label>
             Input Angle here:
@@ -41,7 +51,7 @@ class ArmComponent extends React.Component<ArmProps, any> {
               onChange={this.handleChange}
             />
           </label>
-        </form>   
+        </form>
       </div>
     );
   }
