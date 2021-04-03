@@ -1,16 +1,16 @@
 import React from 'react';
 import { setMotorSensitivity, update } from '../../keyboard-controls';
-import { Motor } from '../../motor';
+import { ArmMotor } from '../../arm-motor';
 
 interface MotorSensitivitySliderProps {
-    motor: Motor;
+    motor: ArmMotor;
 }
 
 interface MotorPowerSliderState {
     sensitivity: number;
 }
 
-export class MotorSensitivitySlider extends React.Component<MotorSensitivitySliderProps, MotorPowerSliderState> {
+class MotorSensitivitySlider extends React.Component<MotorSensitivitySliderProps, MotorPowerSliderState> {
 
     constructor(props: MotorSensitivitySliderProps) {
         super(props);
@@ -19,7 +19,7 @@ export class MotorSensitivitySlider extends React.Component<MotorSensitivitySlid
         };
     }
 
-    updatePower = (event: React.ChangeEvent<HTMLInputElement>) => {
+    updateSensitivity = (event: React.ChangeEvent<HTMLInputElement>) => {
         const sensitivity: number = Number.parseFloat(event.target.value);
         setMotorSensitivity(this.props.motor, sensitivity);
         this.setState({
@@ -35,9 +35,11 @@ export class MotorSensitivitySlider extends React.Component<MotorSensitivitySlid
             <div>
                 <p>{label}</p>
                 <input id={id} type="range" min={0} max={1} step={0.1}
-                value={this.state.sensitivity} onChange={this.updatePower}/>
+                    value={this.state.sensitivity} onChange={this.updateSensitivity} />
             </div>
         )
     }
 
 }
+
+export default MotorSensitivitySlider;

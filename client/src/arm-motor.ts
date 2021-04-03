@@ -1,4 +1,4 @@
-export enum Motor {
+export enum ArmMotor {
     ARM_BASE = "arm_base",
     SHOULDER = "shoulder",
     ELBOW = "elbow",

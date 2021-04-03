@@ -17,7 +17,7 @@ class ArmComponent extends React.Component<ArmProps, any> {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    
+
   }
 
   handleChange(event) {

@@ -18,16 +18,16 @@
  *  U/J: hand
  */
 
-import { Motor } from "./motor";
+import { ArmMotor } from "./arm-motor";
 import { RoverCommands } from "./rover-commands";
 
 
 /** Stores which keys are currently pressed. */
 const pressedKeys: Map<string, boolean> = new Map();
 
-const motorSensitivity: Map<Motor, number> = new Map();
+const motorSensitivity: Map<ArmMotor, number> = new Map();
 
-for (const motor of Object.values(Motor)) {
+for (const motor of Object.values(ArmMotor)) {
     motorSensitivity.set(motor, 1.0);
 }
 
@@ -37,7 +37,7 @@ export function addKeyboardListeners(): void {
     document.addEventListener("keyup", onKeyRelease);
 }
 
-export function setMotorSensitivity(motor: Motor, sensitivity: number) {
+export function setMotorSensitivity(motor: ArmMotor, sensitivity: number) {
     motorSensitivity.set(motor, sensitivity);
 }
 
@@ -104,11 +104,11 @@ function updateDrive(): void {
  * Sends arm-related commands to the rover based on user input.
  */
 function updateArm(): void {
-    RoverCommands.setMotorPower(Motor.ARM_BASE, powerFromKeys("q", "a") * motorSensitivity.get(Motor.ARM_BASE));
-    RoverCommands.setMotorPower(Motor.SHOULDER, powerFromKeys("w", "s") * motorSensitivity.get(Motor.SHOULDER));
-    RoverCommands.setMotorPower(Motor.ELBOW, powerFromKeys("e", "d") * motorSensitivity.get(Motor.ELBOW));
-    RoverCommands.setMotorPower(Motor.FOREARM, powerFromKeys("r", "f") * motorSensitivity.get(Motor.FOREARM));
-    RoverCommands.setMotorPower(Motor.HAND, powerFromKeys("u", "j") * motorSensitivity.get(Motor.HAND));
+    RoverCommands.setMotorPower(ArmMotor.ARM_BASE, powerFromKeys("q", "a") * motorSensitivity.get(ArmMotor.ARM_BASE));
+    RoverCommands.setMotorPower(ArmMotor.SHOULDER, powerFromKeys("w", "s") * motorSensitivity.get(ArmMotor.SHOULDER));
+    RoverCommands.setMotorPower(ArmMotor.ELBOW, powerFromKeys("e", "d") * motorSensitivity.get(ArmMotor.ELBOW));
+    RoverCommands.setMotorPower(ArmMotor.FOREARM, powerFromKeys("r", "f") * motorSensitivity.get(ArmMotor.FOREARM));
+    RoverCommands.setMotorPower(ArmMotor.HAND, powerFromKeys("u", "j") * motorSensitivity.get(ArmMotor.HAND));
     updateWrist();
 }
 
@@ -152,6 +152,6 @@ function updateWrist() {
         leftPower = 0.0;
         rightPower = 0.0;
     }
-    RoverCommands.setMotorPower(Motor.DIFF_LEFT, leftPower);
-    RoverCommands.setMotorPower(Motor.DIFF_RIGHT, rightPower);
+    RoverCommands.setMotorPower(ArmMotor.DIFF_LEFT, leftPower);
+    RoverCommands.setMotorPower(ArmMotor.DIFF_RIGHT, rightPower);
 }

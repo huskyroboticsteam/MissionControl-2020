@@ -1,17 +1,24 @@
 import * as React from "react";
-import { Motor } from "../../motor";
-import { MotorSensitivitySlider } from "./motor-sensitivity-slider";
-export default function MotorSliderList() {
-    return(
-        <div>
-            <h1>Motor Sensitivity</h1>
-            <MotorSensitivitySlider motor={Motor.ARM_BASE} />
-            <MotorSensitivitySlider motor={Motor.SHOULDER} />
-            <MotorSensitivitySlider motor={Motor.ELBOW} />
-            <MotorSensitivitySlider motor={Motor.FOREARM} />
-            <MotorSensitivitySlider motor={Motor.DIFF_LEFT} />
-            <MotorSensitivitySlider motor={Motor.DIFF_RIGHT} />
-            <MotorSensitivitySlider motor={Motor.HAND} />
-        </div>
-    )
+import { ArmMotor } from "../../arm-motor";
+import MotorSensitivitySlider from "./motor-sensitivity-slider";
+
+class MotorSliderList extends React.Component<{}, {}> {
+
+    render() {
+        return (
+            <div>
+                <h1>Motor Sensitivity</h1>
+                <MotorSensitivitySlider motor={ArmMotor.ARM_BASE} />
+                <MotorSensitivitySlider motor={ArmMotor.SHOULDER} />
+                <MotorSensitivitySlider motor={ArmMotor.ELBOW} />
+                <MotorSensitivitySlider motor={ArmMotor.FOREARM} />
+                <MotorSensitivitySlider motor={ArmMotor.DIFF_LEFT} />
+                <MotorSensitivitySlider motor={ArmMotor.DIFF_RIGHT} />
+                <MotorSensitivitySlider motor={ArmMotor.HAND} />
+            </div>
+        );
+    }
+
 }
+
+export default MotorSliderList;

@@ -1,4 +1,4 @@
-import { Motor } from "./motor";
+import { ArmMotor } from "./arm-motor";
 import makeRequest from "./utils/request/makeRequest";
 
 /** How often the client sends packets to the server. */
@@ -7,9 +7,9 @@ const UPDATE_PERIOD_MILIS: number = 100;
 /**
  * Returns an initialized map to store motor power.
  */
-function initializeMotorPowerMap(): Map<Motor, number> {
-    const power: Map<Motor, number> = new Map();
-    for (const motor of Object.values(Motor)) {
+function initializeMotorPowerMap(): Map<ArmMotor, number> {
+    const power: Map<ArmMotor, number> = new Map();
+    for (const motor of Object.values(ArmMotor)) {
         power.set(motor, 0.0);
     }
     return power;
@@ -20,7 +20,7 @@ function initializeMotorPowerMap(): Map<Motor, number> {
  */
 export class RoverCommands {
     private static drivePower: [number, number] = [0.0, 0.0];
-    private static motorPower: Map<Motor, number> = initializeMotorPowerMap();
+    private static motorPower: Map<ArmMotor, number> = initializeMotorPowerMap();
     private static eStop: boolean = false;
 
     /**
@@ -53,7 +53,7 @@ export class RoverCommands {
      * @param motor the motor
      * @param power the power [-1.0, 1.0]
      */
-    static setMotorPower(motor: Motor, power: number): void {
+    static setMotorPower(motor: ArmMotor, power: number): void {
         if (this.motorPower.get(motor) === power) {
             // No need to update.
             return;
@@ -66,7 +66,7 @@ export class RoverCommands {
      * Returns the current power of the given motor.
      * @param motor the motor
      */
-    static getMotorPower(motor: Motor): number {
+    static getMotorPower(motor: ArmMotor): number {
         return this.motorPower.get(motor);
     }
 
@@ -104,7 +104,7 @@ function update(): void {
         sendDriveCommand(forwardBackward, leftRight);
     }
 
-    for (const motor of Object.values(Motor)) {
+    for (const motor of Object.values(ArmMotor)) {
         const power: number = RoverCommands.getMotorPower(motor);
         if (power !== 0) {
             sendMotorCommand(motor, power);
@@ -127,7 +127,7 @@ function sendDriveCommand(forwardBackward: number, leftRight: number): void {
 /**
  * Sends motor-related command packets to the server.
  */
-function sendMotorCommand(motor: Motor, power: number): void {
+function sendMotorCommand(motor: ArmMotor, power: number): void {
     const request = {
         "type": "motor",
         "motor": motor,
