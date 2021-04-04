@@ -1,6 +1,9 @@
 /*
  * Controls for the rover are as follows:
  * 
+ * Space: engage E-stop
+ * Shift-space: disengage E-stop
+ * 
  * Drive:
  *  ArrowUp: drive forward
  *  ArrowDown: drive backward
@@ -45,7 +48,11 @@ function onKeyPress(event: KeyboardEvent): void {
     event.preventDefault();
     if (!keyPressed(event.key)) {
         pressedKeys[event.key] = true;
-        update();
+        if (event.key === " ") {
+            RoverCommands.setEStop(!keyPressed("Shift"));
+        } else {
+            update();
+        }
     }
 }
 

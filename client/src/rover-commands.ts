@@ -1,5 +1,12 @@
+import React from "react";
 import { ArmMotor } from "./arm-motor";
+import StopStatus from "./components/dash-components/stop-status";
 import makeRequest from "./utils/request/makeRequest";
+
+/**
+ * Reference to the StopStatus component that is set by its render() function.
+ */
+export const stopStatusRef: React.RefObject<StopStatus> = React.createRef();
 
 /** How often the client sends packets to the server. */
 const UPDATE_PERIOD_MILIS: number = 100;
@@ -83,6 +90,7 @@ export class RoverCommands {
         }
         this.eStop = eStop;
         sendEStopCommand(eStop);
+        stopStatusRef.current.forceUpdate();
     }
 
     /**
@@ -143,7 +151,7 @@ function sendMotorCommand(motor: ArmMotor, power: number): void {
 function sendEStopCommand(eStop: boolean) {
     const request = {
         "type": "estop",
-        "release": eStop
+        "release": !eStop
     };
     sendRequest(request);
 }
