@@ -1,13 +1,13 @@
 import React from "react";
 import ReactSpeedometer from "react-d3-speedometer";
-import StopStatus from "./dash-components/stop-status";
-import ConnectionQualityComponent from "./dash-components/connection-quality-component";
-import "./dash-components/dashboard.css";
-import Temperature from "./dash-components/temperature-component";
-import DataPacket from "../types";
-import CoordinatesComponent from "./dash-components/coordinates-component";
-import VoltageComponent from "./dash-components/voltage-component";
-import {stopStatusRef} from '../rover-commands';
+import StopStatus from "./stop-status";
+import ConnectionQualityComponent from "./connection-quality-component";
+import "./dashboard.css";
+import Temperature from "./temperature-component";
+import DataPacket from "../../types";
+import CoordinatesComponent from "./coordinates-component";
+import VoltageComponent from "./voltage-component";
+import {stopStatusRef} from '../../rover-commands';
 
 type DashProps = {
   sensors: DataPacket;

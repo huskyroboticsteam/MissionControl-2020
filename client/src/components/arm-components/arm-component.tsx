@@ -1,6 +1,6 @@
 import * as React from "react";
 import CheckboxesGroup from "../tasklist-component";
-import GamepadList from "../GamepadList";
+import GamepadList from "./gamepad/GamepadList";
 import CanvasTesting from "./arm-test-component";
 import MotorSliderList from "./motor-slider-list";
 import "./arm-component.css"

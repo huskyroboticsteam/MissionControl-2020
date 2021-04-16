@@ -2,10 +2,10 @@ import { Typography, CssBaseline, withStyles, Theme } from "@material-ui/core";
 import * as React from "react";
 import { connect } from "react-redux";
 import { compose } from "recompose";
-import openSocket from "../actions/socket/openSocket";
+import openSocket from "../../actions/socket/openSocket";
 import MapTest from "./map";
-import CheckboxesGroup from "./tasklist-component";
-import DataPacket from "../types";
+import CheckboxesGroup from "../tasklist-component";
+import DataPacket from "../../types";
 import MapCheck from "./testmap";
 //import RequestButton from "./request-button-component";
 

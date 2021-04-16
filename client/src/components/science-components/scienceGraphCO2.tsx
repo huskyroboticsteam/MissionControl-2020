@@ -1,34 +1,39 @@
-import { CanvasJS, CanvasJSChart }  from '../canvasjs.react';
+import { CanvasJS, CanvasJSChart }  from '../../canvasjs.react';
 import { Typography, CssBaseline, withStyles, Theme } from "@material-ui/core";
 import * as React from "react";
 import { connect } from "react-redux";
 import { compose } from "recompose";
-import openSocket from "../actions/socket/openSocket";
-import DataPacket from "../types";
+import openSocket from "../../actions/socket/openSocket";
+//import {render} from 'react-dom'
+import DataPacket from "../../types";
 
 
 var Component = React.Component;
-var dps = [{x: 1, y: 10}, {x: 2, y: 13}, {x: 3, y: 18}, {x: 4, y: 20}];   //dataPoints.
+
+
+var dps = [{x: 6, y: 10}];   //dataPoints.
 var xVal = dps.length + 1;
 var yVal = 15;
 var updateInterval = 3000;
 var interval;
 
-type TVOCgraphProps= {
+type CO2graphProps= {
   sensors: DataPacket;
-}
+};
 
-class TVOCgraph extends React.Component<TVOCgraphProps> {
+class CO2graph extends Component<CO2graphProps> {
     chart: CanvasJSChart;
-    constructor(TVOCgraphProps) {
-		super(TVOCgraphProps);
+    constructor(CO2graphProps) {
+		super(CO2graphProps);
         this.updateChart = this.updateChart.bind(this);
         this.chart = new CanvasJSChart({});
-        
 	}
 	componentDidMount() {
 		interval = setInterval(this.updateChart, updateInterval);
-	}
+  }
+  componentWillUnmount(){
+    clearInterval(interval);   
+  }
 	updateChart() {
 		yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
 		dps.push({x: xVal,y: yVal});
@@ -37,18 +42,15 @@ class TVOCgraph extends React.Component<TVOCgraphProps> {
 			dps.shift();
 		}
 		this.chart.render();
-  }
-  componentWillUnmount(){
-    clearInterval(interval);  
-  } 
-	render =()=> {
+	}
+	render=()=>{
         const options = {
           title: {
-            text: "TVOC Graph"
+            text: "CO2 Graph"
           },
           data: [{
             type: "line",
-            dataPoints : [{x: this.props.sensors.x_tvoc, y: this.props.sensors.y_tvoc}],
+            dataPoints : [{x: this.props.sensors.x_s, y: this.props.sensors.y_s}],
         }]
        }
        return (
@@ -60,4 +62,4 @@ class TVOCgraph extends React.Component<TVOCgraphProps> {
         );
       }
 }
-export default TVOCgraph;
+export default CO2graph;

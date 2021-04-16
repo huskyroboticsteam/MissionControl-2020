@@ -2,7 +2,7 @@ import { Typography, CssBaseline, withStyles, Theme } from "@material-ui/core";
 import * as React from "react";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import DataPacket from "../types";
+import DataPacket from "../../types";
 // map displayed, add functionality over the next few weeks
 // add ability to automatically sense coordinates
 // west is negative

@@ -9,7 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import ErrorIcon from "@material-ui/icons/Error";
 import DoneIcon from "@material-ui/icons/Done";
-import DataPacket from "../types";
+import DataPacket from "../../types";
 //import classes from '*.module.css';
 
 
