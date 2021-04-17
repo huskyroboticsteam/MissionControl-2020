@@ -9,14 +9,6 @@ import EcoIcon from "@material-ui/icons/Eco";
 import PhoneIcon from "@material-ui/icons/Phone";
 import { Link } from "react-router-dom";
 
-const styles = {
-  stickToBottom: {
-    width: "100%",
-    position: "fixed",
-    bottom: 0
-  }
-};
-
 class Navbar extends React.Component {
   state = {
     value: 0,

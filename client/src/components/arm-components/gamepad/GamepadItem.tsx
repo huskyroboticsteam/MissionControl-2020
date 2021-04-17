@@ -38,11 +38,11 @@ export default class GamepadItem extends React.Component<GamepadProps, any> {
   }
 
   buttonValue(b: GamepadButton) {
-    return (typeof (b) == 'number') ? b : b.value;
+    return (typeof (b) === 'number') ? b : b.value;
   }
 
   buttonPressed(b: GamepadButton) {
-    return (typeof (b) == 'number') ? b > 0.1 : b.pressed
+    return (typeof (b) === 'number') ? b > 0.1 : b.pressed
   }
 
   mappingString(mapping: GamepadMappingType) {
@@ -71,8 +71,8 @@ export default class GamepadItem extends React.Component<GamepadProps, any> {
     // expected values = (left = 1, right = -1, forward = 1, backward = -1)
     var motor = {
       type: "drive",
-      forward_backward: gamepad == null || gamepad == undefined ? 0 :  this.props.gamepad.axes[1],
-      left_right: gamepad == null || gamepad == undefined ? 0 :  this.props.gamepad.axes[0]
+      forward_backward: gamepad === null || gamepad === undefined ? 0 :  this.props.gamepad.axes[1],
+      left_right: gamepad === null || gamepad === undefined ? 0 :  this.props.gamepad.axes[0]
     }
 
     

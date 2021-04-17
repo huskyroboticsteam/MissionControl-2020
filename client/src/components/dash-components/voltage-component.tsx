@@ -7,7 +7,7 @@ type VoltageProps = {
 }
 
 function checkVoltage(props) {
-    if (props.Voltage==true) {
+    if (props.Voltage === true) {
         return (
             <div>
               <DoneIcon/>
