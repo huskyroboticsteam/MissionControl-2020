@@ -1,6 +1,6 @@
 import { Typography, CssBaseline, withStyles, Theme } from "@material-ui/core";
 import * as React from "react";
-import Snackbar from "@material-ui/core/Snackbar";
+//import Snackbar from "@material-ui/core/Snackbar";
 import { connect } from "react-redux";
 import { compose } from "recompose";
 import openSocket from "../actions/socket/openSocket";
@@ -11,12 +11,12 @@ import CameraComponent from "./camera-components/camera-component";
 import TelemetryComponent from "./telemetry-components/telemetry-component";
 import ScienceComponent from "./science-components/science-component";
 import DashComponent from "./dash-components/dashboard";
-import makeRequest from "../utils/request/makeRequest";
+//import makeRequest from "../utils/request/makeRequest";
 import { Route, HashRouter } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import "./app.css";
 import DataPacket from "../types";
-import ControllerComponent from "./controller-component";
+//import ControllerComponent from "./controller-component";
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 const backTheme = createMuiTheme({
