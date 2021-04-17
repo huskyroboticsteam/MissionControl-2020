@@ -19,6 +19,7 @@ type TelemetryTableProps = {
 
 }
 
+/*
 function checkVoltage(props) {
   if (props.voltages>100) {
       return (
@@ -31,6 +32,7 @@ function checkVoltage(props) {
         );
   }
 }
+*/
 
 
 
