@@ -40,10 +40,5 @@ class CanvasJSChart extends React.Component {
 	}	
 }
 
-var CanvasJSReact = {
-    CanvasJSChart: CanvasJSChart,
-    CanvasJS: CanvasJS
-};
-
 // export default CanvasJSReact;
 export { CanvasJSChart, CanvasJS };
