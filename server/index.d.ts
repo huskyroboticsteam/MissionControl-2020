@@ -6,6 +6,8 @@ interface DataPacket {
     front_right: number;
     bottom_left: number;
     bottom_right: number;
+    latitude: number,
+    longitude: number,
     arm: number;
     x:number;
     y:number;
