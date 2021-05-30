@@ -23,6 +23,12 @@ app.use(function(req, res, next) {
 
 const MC_PORT = 8000;
 
+const allowedOrigins = ['http://localhost:3000'];
+const options : cors.CorsOptions = {
+  origin: allowedOrigins
+};
+app.use(cors(options));
+
 commandService.start();
 let timer; // only support one MC
 var env = process.env.NODE_ENV || "development";

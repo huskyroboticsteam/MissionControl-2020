@@ -168,8 +168,7 @@ function sendRequest(request: any): void {
         () => {
         },
         (error) => {
-            // TODO: fix bug that causes this to run even when working correctly
-            // alert("Error sending command: " + error);
+            alert("Error sending command: " + error);
         }
     );
 }
