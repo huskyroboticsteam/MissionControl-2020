@@ -9,7 +9,7 @@ import makeRequest from "./utils/request/makeRequest";
 export const stopStatusRef: React.RefObject<StopStatus> = React.createRef();
 
 /** How often the client sends packets to the server. */
-const UPDATE_PERIOD_MILIS: number = 100;
+const UPDATE_PERIOD_MILIS: number = 700;
 
 /**
  * Returns an initialized map to store motor power.
