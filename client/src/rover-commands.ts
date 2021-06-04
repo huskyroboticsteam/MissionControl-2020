@@ -9,7 +9,7 @@ import makeRequest from "./utils/request/makeRequest";
 export const stopStatusRef: React.RefObject<StopStatus> = React.createRef();
 
 /** How often the client sends packets to the server. */
-const UPDATE_PERIOD_MILIS: number = 100;
+const UPDATE_PERIOD_MILIS: number = 700;
 
 /**
  * Returns an initialized map to store motor power.
@@ -93,6 +93,10 @@ export class RoverCommands {
         stopStatusRef.current.forceUpdate();
     }
 
+    static toggleAutonomous(): void {
+        sendAutonomousCommand();
+    }
+
     /**
      * Returns true if this rover is E-stopped, false otherwise.
      */
@@ -136,12 +140,17 @@ function sendDriveCommand(forwardBackward: number, leftRight: number): void {
  * Sends motor-related command packets to the server.
  */
 function sendMotorCommand(motor: ArmMotor, power: number): void {
-    const request = {
+    var op_mode_key = "incremental PID speed";
+    if (motor !== ArmMotor.ARM_BASE &&
+        motor !== ArmMotor.SHOULDER &&
+        motor !== ArmMotor.ELBOW) {
+        op_mode_key = "PWM target";
+    }
+    var request = {
         "type": "motor",
-        "motor": motor,
-        "mode": "PWM",
-        "PWM target": power
+        "motor": motor
     };
+    request[op_mode_key] = power;
     sendRequest(request);
 }
 
@@ -152,6 +161,16 @@ function sendEStopCommand(eStop: boolean) {
     const request = {
         "type": "estop",
         "release": !eStop
+    };
+    sendRequest(request);
+}
+
+/**
+ * Sends a command to toggle autonomous mode on the rover.
+ */
+function sendAutonomousCommand() {
+    const request = {
+        "type": "autonomous"
     };
     sendRequest(request);
 }

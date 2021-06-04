@@ -50,6 +50,8 @@ function onKeyPress(event: KeyboardEvent): void {
         pressedKeys[event.key] = true;
         if (event.key === " ") {
             RoverCommands.setEStop(!keyPressed("Shift"));
+        } else if (event.key === "p") {
+            RoverCommands.toggleAutonomous();
         } else {
             update();
         }
