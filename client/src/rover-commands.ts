@@ -93,6 +93,10 @@ export class RoverCommands {
         stopStatusRef.current.forceUpdate();
     }
 
+    static toggleAutonomous(): void {
+        sendAutonomousCommand();
+    }
+
     /**
      * Returns true if this rover is E-stopped, false otherwise.
      */
@@ -152,6 +156,16 @@ function sendEStopCommand(eStop: boolean) {
     const request = {
         "type": "estop",
         "release": !eStop
+    };
+    sendRequest(request);
+}
+
+/**
+ * Sends a command to toggle autonomous mode on the rover.
+ */
+function sendAutonomousCommand() {
+    const request = {
+        "type": "autonomous"
     };
     sendRequest(request);
 }
