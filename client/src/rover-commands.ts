@@ -140,12 +140,17 @@ function sendDriveCommand(forwardBackward: number, leftRight: number): void {
  * Sends motor-related command packets to the server.
  */
 function sendMotorCommand(motor: ArmMotor, power: number): void {
-    const request = {
+    var op_mode_key = "incremental PID speed";
+    if (motor !== ArmMotor.ARM_BASE &&
+        motor !== ArmMotor.SHOULDER &&
+        motor !== ArmMotor.ELBOW) {
+        op_mode_key = "PWM target";
+    }
+    var request = {
         "type": "motor",
-        "motor": motor,
-        "mode": "PWM",
-        "PWM target": power
+        "motor": motor
     };
+    request[op_mode_key] = power;
     sendRequest(request);
 }
 
