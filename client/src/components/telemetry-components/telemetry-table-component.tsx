@@ -9,30 +9,12 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import ErrorIcon from "@material-ui/icons/Error";
 import DoneIcon from "@material-ui/icons/Done";
-import DataPacket from "../types";
-//import classes from '*.module.css';
-
-
+import DataPacket from "../../types";
 
 type TelemetryTableProps = {
   sensors: DataPacket;
 
 }
-
-function checkVoltage(props) {
-  if (props.voltages>100) {
-      return (
-            <DoneIcon/> 
-        );
-  } 
-  else {
-      return (
-            <ErrorIcon/>
-        );
-  }
-}
-
-
 
 const useStyles = makeStyles({
   table: {
@@ -41,11 +23,9 @@ const useStyles = makeStyles({
   },
 });
 
-
 function createData(motor, status, current, voltage) {
   return { motor, status, current, voltage};
 }
-
 
 const rows = [
   createData('Front Left', <DoneIcon/>, 6, 24),
@@ -54,8 +34,6 @@ const rows = [
   createData('Bottom Right', <DoneIcon/>, 3.7, 673),
   createData("Arm", <DoneIcon/>, 16.0, 49),
 ];
-
-
 
 export default function TelemetryTable() {
   const classes = useStyles(); 
@@ -85,15 +63,4 @@ export default function TelemetryTable() {
       </Table>
     </TableContainer>
   );
-} 
-
-//class TelemetryTableComponent extends React.Component<TelemetryTableProps>{
-  //render() {
-    //const {sensors } = this.props;
-    //return (
-        //TelemetryTable()
-    //)
-  //}
-//}
-
-//export default TelemetryTableComponent;
+}

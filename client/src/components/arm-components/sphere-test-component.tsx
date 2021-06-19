@@ -1,9 +1,8 @@
 import React, { useRef, useState } from 'react'
-import { useFrame } from 'react-three-fiber'
-import { useDrag } from "react-use-gesture"
+// import { useFrame } from 'react-three-fiber'
 
-// consolidate into canvas only?
-function BoxJoint1(props) {
+
+function Sphere(props) {
   // This reference will give us direct access to the mesh
   const mesh = useRef()
 
@@ -20,13 +19,14 @@ function BoxJoint1(props) {
     <mesh
       {...props}
       ref={mesh}
+      scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
       onClick={e => setActive(!active)}
       onPointerOver={e => setHover(true)}
       onPointerOut={e => setHover(false)}>
-      <boxBufferGeometry attach="geometry" args={[0.5, 3, 0.5]} />
-      <meshStandardMaterial attach="material" color={hovered ? 'hotpink' : 'purple'} />
+      <sphereGeometry attach="geometry" args={[0.5, 8, 8]} />
+      <meshStandardMaterial attach="material" color={hovered ? 'hotpink' : 'orange'} />
     </mesh>
   )
 }
 
-export default BoxJoint1;
+export default Sphere;

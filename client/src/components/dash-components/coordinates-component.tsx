@@ -17,7 +17,6 @@ const coordinatesBarContainer = {
 } as React.CSSProperties;
 class CoordinatesComponent extends React.Component<CoordinatesProps>{
     render(){
-        let tableStyle = 'tableStyle';
         return (
             <div style={coordinatesBarContainer}>
                 <table>

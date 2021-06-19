@@ -9,14 +9,6 @@ import EcoIcon from "@material-ui/icons/Eco";
 import PhoneIcon from "@material-ui/icons/Phone";
 import { Link } from "react-router-dom";
 
-const styles = {
-  stickToBottom: {
-    width: "100%",
-    position: "fixed",
-    bottom: 0
-  }
-};
-
 class Navbar extends React.Component {
   state = {
     value: 0,
@@ -29,15 +21,17 @@ class Navbar extends React.Component {
     ]
   };
 
-  componentWillReceiveProps(newProps) {
-    const { pathName } = newProps.location;
-    const { pathMap } = this.state;
-    const value = pathMap.indexOf(pathName);
+  // This causes client to crash when started after server, so I commented it
+  // out. May need to revisit later.
+  // componentWillReceiveProps(newProps) {
+  //   const { pathName } = newProps.location;
+  //   const { pathMap } = this.state;
+  //   const value = pathMap.indexOf(pathName);
 
-    if (value > -1) {
-      this.setState({ value });
-    }
-  }
+  //   if (value > -1) {
+  //     this.setState({ value });
+  //   }
+  // }
 
   handleChange = (event, value) => {
     this.setState({ value });

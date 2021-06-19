@@ -1,11 +1,6 @@
-import { CanvasJS, CanvasJSChart }  from '../canvasjs.react';
-import { Typography, CssBaseline, withStyles, Theme } from "@material-ui/core";
+import { CanvasJSChart }  from '../../canvasjs.react';
 import * as React from "react";
-import { connect } from "react-redux";
-import { compose } from "recompose";
-import openSocket from "../actions/socket/openSocket";
-//import {render} from 'react-dom'
-import DataPacket from "../types";
+import DataPacket from "../../types";
 
 
 var Component = React.Component;

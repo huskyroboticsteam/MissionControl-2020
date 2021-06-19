@@ -19,26 +19,3 @@ type RequestProps = {};
    }
  }
 export default RequestButton;
-
-// type RequestProps = {};
-// class RequestButton extends React.Component<RequestProps> {
-//   render() {
-//     return (
-//         <Button variant="contained" onClick={request} color="primary">
-//           REQUEST
-//         </Button>
-//     );
-//   }
-// }
-// function request() {
-//     makeRequest(
-//         “/”,
-//         {{type: ‘drive’, power: 0.86, left-right: 0.2}},
-//         () => {
-//             this.props.enqueueSnackbar(“Success”);
-//         },
-//         (error: Error) => {
-//             this.props.enqueueSnackbar(error, snackbarOptions);
-//         }
-//     );
-// }

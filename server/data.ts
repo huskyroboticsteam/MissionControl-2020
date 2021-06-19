@@ -6,6 +6,8 @@ let currData: DataPacket = {
   front_right: 0,
   bottom_left: 0,
   bottom_right: 0,
+  latitude: 0,
+  longitude: 0,
   arm: 0,
   x:0,
   y:0,

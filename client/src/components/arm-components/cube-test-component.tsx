@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
-import { useFrame } from 'react-three-fiber'
-import { useDrag } from "react-use-gesture"
+// import { useFrame } from 'react-three-fiber'
+// import { useDrag } from "react-use-gesture"
 
 // consolidate into canvas only?
 function BoxJoint(props) {

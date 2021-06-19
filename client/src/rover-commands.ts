@@ -37,7 +37,7 @@ export class RoverCommands {
      * @param leftRight power in the horizontal direction [-1.0, 1.0]
      */
     static setDrivePower(forwardBackward: number, leftRight: number): void {
-        if (this.drivePower[0] === forwardBackward && this.drivePower[1] == leftRight) {
+        if (this.drivePower[0] === forwardBackward && this.drivePower[1] === leftRight) {
             // No need to update.
             return;
         }
