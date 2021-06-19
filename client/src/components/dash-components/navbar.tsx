@@ -21,7 +21,8 @@ class Navbar extends React.Component {
     ]
   };
 
-  // This causes client to crash when started after server, so I commented it out.
+  // This causes client to crash when started after server, so I commented it
+  // out. May need to revisit later.
   // componentWillReceiveProps(newProps) {
   //   const { pathName } = newProps.location;
   //   const { pathMap } = this.state;

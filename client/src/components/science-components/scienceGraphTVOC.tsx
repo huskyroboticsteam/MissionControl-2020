@@ -1,14 +1,7 @@
-//import { CanvasJS } from '../../canvasjs.react';
 import { CanvasJSChart } from '../../canvasjs.react';
-//import { Typography, CssBaseline, withStyles, Theme } from "@material-ui/core";
 import * as React from "react";
-//import { connect } from "react-redux";
-//import { compose } from "recompose";
-//import openSocket from "../../actions/socket/openSocket";
 import DataPacket from "../../types";
 
-
-//var Component = React.Component;
 var dps = [{x: 1, y: 10}, {x: 2, y: 13}, {x: 3, y: 18}, {x: 4, y: 20}];   //dataPoints.
 var xVal = dps.length + 1;
 var yVal = 15;

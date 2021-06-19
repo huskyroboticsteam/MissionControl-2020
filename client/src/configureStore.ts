@@ -1,6 +1,5 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import reduxThunkMiddleware from "redux-thunk";
-// import logger from "redux-logger";
 
 import socketMiddleware from "./middleware/socket";
 

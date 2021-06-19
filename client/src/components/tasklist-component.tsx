@@ -1,14 +1,9 @@
-//import { Typography, CssBaseline, withStyles, Theme } from "@material-ui/core";
 import * as React from "react";
 import { makeStyles } from "@material-ui/core";
-//import { connect } from "react-redux";
-//import { compose } from "recompose";
-//import openSocket from "../actions/socket/openSocket";
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-//import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles(theme => ({
@@ -33,7 +28,6 @@ export default function CheckboxesGroup() {
   };
 
   const { step1delivery, step1science, step1service } = state;
-  //const error = [step1delivery, step1science, step1service].filter(v => v).length !== 2;
 
   return (
     <div className={classes.root}>
