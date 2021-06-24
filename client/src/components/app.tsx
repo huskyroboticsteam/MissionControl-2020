@@ -10,6 +10,7 @@ import CameraComponent from "./camera-components/camera-component";
 import TelemetryComponent from "./telemetry-components/telemetry-component";
 import ScienceComponent from "./science-components/science-component";
 import DashComponent from "./dash-components/dashboard";
+import HelpComponent from "./help-components/help-component";
 import { Route, HashRouter } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import "./app.css";
@@ -72,6 +73,7 @@ class App extends React.Component<AppProps> {
             <Route path="/science-component" render={() => <ScienceComponent sensors={sensors} />} />
             <Route path="/telemetry-component" render={() => <TelemetryComponent sensors={sensors} />} />
             <Route path="/camera-component" render={() => <CameraComponent sensors={sensors} />} />
+            <Route path="/help-component" render={() => <HelpComponent />} />
             <div style={{ position: "fixed", bottom: "0", width: "100%" }}>
               <Navbar />
             </div>

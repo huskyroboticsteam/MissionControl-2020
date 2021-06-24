@@ -4,12 +4,13 @@ class HelpComponent extends React.Component {
     render() {
         return (
             <div>
-                <h1>E-stop Controls</h1>
+                <h3>E-stop Controls</h3>
                 <ul>
                     <li>Space: engage E-stop</li>
                     <li>Shift-space: disengage E-stop</li>
                 </ul>
-                <h1>Drive Controls</h1>
+                <br />
+                <h3>Drive Controls</h3>
                 <ul>
                     <li>ArrowUp: drive forward</li>
                     <li>ArrowDown: drive backward</li>
@@ -18,7 +19,8 @@ class HelpComponent extends React.Component {
                     <li>C (hold): reduce speed</li>
                     <li>V (hold): increase speed</li>
                 </ul>
-                <h1>Arm Controls</h1>:
+                <br />
+                <h3>Arm Controls</h3>
                 <ul>
                     <li>Q/A: arm base</li>
                     <li>W/S: shoulder</li>

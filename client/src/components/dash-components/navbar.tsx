@@ -18,7 +18,8 @@ class Navbar extends React.Component {
       "arm-component",
       "science-component",
       "telemetry-component",
-      "camera-component"
+      "camera-component",
+      "help-component"
     ]
   };
 
