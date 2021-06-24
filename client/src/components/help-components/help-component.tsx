@@ -25,9 +25,9 @@ class HelpComponent extends React.Component {
                     <li>Q/A: arm base</li>
                     <li>W/S: shoulder</li>
                     <li>E/D: elbow</li>
-                    <li> R/F: forearm</li>
-                    <li> T/G/Y/H: wrist</li>
-                    <li> U/J: hand</li>
+                    <li>R/F: forearm</li>
+                    <li>T/G/Y/H: wrist</li>
+                    <li>U/J: hand</li>
                 </ul>
             </div>
         );
