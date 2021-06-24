@@ -1,32 +1,43 @@
 import * as React from "react";
 import Gamepad from "react-gamepad";
+import { RoverCommands } from "../rover-commands";
 
 type ControllerProps = {};
 
+let forwardBackward: number = 0.0;
+let leftRight: number = 0.0;
+
 class ControllerComponent extends React.Component<ControllerProps> {
+
   connectHandler(gamepadIndex: number) {
-    console.log(`Gamepad ${gamepadIndex} connected !`);
+    console.log(`Gamepad ${gamepadIndex} connected!`);
   }
 
   disconnectHandler(gamepadIndex: number) {
-    console.log(`Gamepad ${gamepadIndex} disconnected !`);
+    console.log(`Gamepad ${gamepadIndex} disconnected!`);
   }
 
   buttonChangeHandler(buttonName: string, down: boolean) {
-    console.log(buttonName, down);
+    // TODO
   }
 
   axisChangeHandler(axisName: string, value: number, previousValue: number) {
-    console.log(axisName, value);
+    if (axisName === "LeftStickY") {
+      forwardBackward = value;
+    } else if (axisName === "RightStickX") {
+      leftRight = value;
+    }
+    RoverCommands.setDrivePower(forwardBackward, leftRight);
   }
 
   buttonDownHandler(buttonName: string) {
-    console.log(buttonName, "down");
+    // TODO
   }
 
   buttonUpHandler(buttonName: string) {
-    console.log(buttonName, "up");
+    // TODO
   }
+
   render() {
     return (
       <Gamepad
@@ -35,7 +46,7 @@ class ControllerComponent extends React.Component<ControllerProps> {
         onButtonChange={this.buttonChangeHandler}
         onAxisChange={this.axisChangeHandler}
       >
-          <div></div>
+        <div></div>
       </Gamepad>
     );
   }

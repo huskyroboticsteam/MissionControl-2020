@@ -16,6 +16,7 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import "./app.css";
 import DataPacket from "../types";
 import 'mapbox-gl/dist/mapbox-gl.css';
+import ControllerComponent from './controller-component';
 
 const backTheme = createMuiTheme({
   palette: {
@@ -50,6 +51,7 @@ class App extends React.Component<AppProps> {
 
     return (
       <MuiThemeProvider theme={backTheme}>
+        <ControllerComponent />
         <HashRouter>
           <div style={{ top: "0" }}>
             <CssBaseline />
