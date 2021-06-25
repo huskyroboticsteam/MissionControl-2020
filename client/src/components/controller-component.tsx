@@ -4,8 +4,12 @@ import { RoverCommands } from "../rover-commands";
 
 type ControllerProps = {};
 
+// Current forward/backward input from gamepad
 let forwardBackward: number = 0.0;
+// Current left/right input from gamepad
 let leftRight: number = 0.0;
+// Used to ensure that gamepad input does not interfere with keyboard input
+let gamepadInUse: boolean = false;
 
 class ControllerComponent extends React.Component<ControllerProps> {
 
@@ -24,10 +28,22 @@ class ControllerComponent extends React.Component<ControllerProps> {
   axisChangeHandler(axisName: string, value: number, previousValue: number) {
     if (axisName === "LeftStickY") {
       forwardBackward = value;
+      if (value !== 0.0) {
+        gamepadInUse = true;
+      }
     } else if (axisName === "RightStickX") {
-      leftRight = value;
+      // negative leftRight causes clockwise rotation
+      leftRight = -value;
+      if (value != 0.0) {
+        gamepadInUse = true;
+      }
     }
-    RoverCommands.setDrivePower(forwardBackward, leftRight);
+    if (gamepadInUse) {
+      RoverCommands.setDrivePower(forwardBackward, leftRight);
+    }
+    if (forwardBackward === 0.0 && leftRight === 0.0) {
+      gamepadInUse = false;
+    }
   }
 
   buttonDownHandler(buttonName: string) {
