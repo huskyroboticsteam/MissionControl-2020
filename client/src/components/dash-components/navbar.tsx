@@ -5,6 +5,7 @@ import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import HomeIcon from "@material-ui/icons/Home";
 import OfflineBoltIcon from "@material-ui/icons/OfflineBolt";
 import CameraIcon from "@material-ui/icons/Camera";
+import HelpIcon from "@material-ui/icons/Help"
 import EcoIcon from "@material-ui/icons/Eco";
 import PhoneIcon from "@material-ui/icons/Phone";
 import { Link } from "react-router-dom";
@@ -17,7 +18,8 @@ class Navbar extends React.Component {
       "arm-component",
       "science-component",
       "telemetry-component",
-      "camera-component"
+      "camera-component",
+      "help-component"
     ]
   };
 
@@ -75,6 +77,12 @@ class Navbar extends React.Component {
           icon={<CameraIcon />}
           component={Link}
           to={pathMap[4]}
+        />
+        <BottomNavigationAction
+          label="Help"
+          icon={<HelpIcon />}
+          component={Link}
+          to={pathMap[5]}
         />
       </BottomNavigation>
     );
