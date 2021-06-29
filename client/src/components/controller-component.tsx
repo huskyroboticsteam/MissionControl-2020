@@ -1,32 +1,59 @@
 import * as React from "react";
 import Gamepad from "react-gamepad";
+import { RoverCommands } from "../rover-commands";
 
 type ControllerProps = {};
 
+// Current forward/backward input from gamepad
+let forwardBackward: number = 0.0;
+// Current left/right input from gamepad
+let leftRight: number = 0.0;
+// Used to ensure that gamepad input does not interfere with keyboard input
+let gamepadInUse: boolean = false;
+
 class ControllerComponent extends React.Component<ControllerProps> {
+
   connectHandler(gamepadIndex: number) {
-    console.log(`Gamepad ${gamepadIndex} connected !`);
+    console.log(`Gamepad ${gamepadIndex} connected!`);
   }
 
   disconnectHandler(gamepadIndex: number) {
-    console.log(`Gamepad ${gamepadIndex} disconnected !`);
+    console.log(`Gamepad ${gamepadIndex} disconnected!`);
   }
 
   buttonChangeHandler(buttonName: string, down: boolean) {
-    console.log(buttonName, down);
+    // TODO
   }
 
   axisChangeHandler(axisName: string, value: number, previousValue: number) {
-    console.log(axisName, value);
+    if (axisName === "LeftStickY") {
+      forwardBackward = value;
+      if (value !== 0.0) {
+        gamepadInUse = true;
+      }
+    } else if (axisName === "RightStickX") {
+      // negative leftRight causes clockwise rotation
+      leftRight = -value;
+      if (value != 0.0) {
+        gamepadInUse = true;
+      }
+    }
+    if (gamepadInUse) {
+      RoverCommands.setDrivePower(forwardBackward, leftRight);
+    }
+    if (forwardBackward === 0.0 && leftRight === 0.0) {
+      gamepadInUse = false;
+    }
   }
 
   buttonDownHandler(buttonName: string) {
-    console.log(buttonName, "down");
+    // TODO
   }
 
   buttonUpHandler(buttonName: string) {
-    console.log(buttonName, "up");
+    // TODO
   }
+
   render() {
     return (
       <Gamepad
@@ -35,7 +62,7 @@ class ControllerComponent extends React.Component<ControllerProps> {
         onButtonChange={this.buttonChangeHandler}
         onAxisChange={this.axisChangeHandler}
       >
-          <div></div>
+        <div></div>
       </Gamepad>
     );
   }
