@@ -45,7 +45,8 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-sort-requires": "^2.1.0",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "typescript": "^3.9.7"
   },
   "scripts": {
     "start": "tsc && echo Done compiling typescript && node build/app.js",
