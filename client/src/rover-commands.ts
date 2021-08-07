@@ -140,7 +140,9 @@ function sendDriveCommand(forwardBackward: number, leftRight: number): void {
  * Sends motor-related command packets to the server.
  */
 function sendMotorCommand(motor: ArmMotor, power: number): void {
-    var op_mode_key = "incremental PID speed";
+    // Right now PID control doesn't work well on the rover.
+    //var op_mode_key = "incremental PID speed";
+    var op_mode_key = "PWM target";
     if (motor !== ArmMotor.ARM_BASE &&
         motor !== ArmMotor.SHOULDER &&
         motor !== ArmMotor.ELBOW) {
