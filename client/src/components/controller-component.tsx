@@ -34,7 +34,7 @@ class ControllerComponent extends React.Component<ControllerProps> {
     } else if (axisName === "RightStickX") {
       // negative leftRight causes clockwise rotation
       leftRight = -value;
-      if (value != 0.0) {
+      if (value !== 0.0) {
         gamepadInUse = true;
       }
     }

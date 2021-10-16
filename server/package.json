@@ -49,8 +49,10 @@
     "typescript": "^3.9.7"
   },
   "scripts": {
-    "start": "tsc && echo Done compiling typescript && node build/app.js",
-    "debug": "tsc && echo Done compiling typescript && NODE_ENV=development node build/app.js ",
+    "build": "tsc --build && echo Finished compiling TypeScript",
+    "clean": "tsc --build --clean && echo Finished compiling TypeScript",
+    "start": "npm run build && node build/app.js",
+    "debug": "npm run build && NODE_ENV=development node build/app.js ",
     "tsc:w": "tsc -w"
   },
   "private": true
