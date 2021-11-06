@@ -8,8 +8,12 @@ import makeRequest from "./utils/request/makeRequest";
  */
 export const stopStatusRef: React.RefObject<StopStatus> = React.createRef();
 
-/** How often the client sends packets to the server. */
-const UPDATE_PERIOD_MILIS: number = 700;
+/** How often the client resends packets to the server. */
+const UPDATE_PERIOD_MILIS: number = 200;
+/** Mission Control will only send a motor or drive request immediately if the
+ * request's power value differs from the current power by at least EPSILON. 
+ * This ensures that the CAN queue does not overflow. */
+const EPSILON = 0.05;
 
 /**
  * Returns an initialized map to store motor power.
@@ -37,12 +41,11 @@ class RoverCommands {
      * @param leftRight power in the horizontal direction [-1.0, 1.0]
      */
     static setDrivePower(forwardBackward: number, leftRight: number): void {
-        if (this.drivePower[0] === forwardBackward && this.drivePower[1] === leftRight) {
-            // No need to update.
-            return;
+        if (Math.abs(this.drivePower[0] - forwardBackward) >= EPSILON ||
+            Math.abs(this.drivePower[1] - leftRight) >= EPSILON) {
+            sendDriveCommand(forwardBackward, leftRight);
         }
         this.drivePower = [forwardBackward, leftRight];
-        sendDriveCommand(forwardBackward, leftRight);
     }
 
     /**
@@ -61,12 +64,10 @@ class RoverCommands {
      * @param power the power [-1.0, 1.0]
      */
     static setMotorPower(motor: ArmMotor, power: number): void {
-        if (this.motorPower.get(motor) === power) {
-            // No need to update.
-            return;
+        if (power === 0 || Math.abs(this.motorPower.get(motor) - power) >= EPSILON) {
+            sendMotorCommand(motor, power);
         }
         this.motorPower.set(motor, power);
-        sendMotorCommand(motor, power);
     }
 
     /**
@@ -140,17 +141,11 @@ function sendDriveCommand(forwardBackward: number, leftRight: number): void {
  * Sends motor-related command packets to the server.
  */
 function sendMotorCommand(motor: ArmMotor, power: number): void {
-    var op_mode_key = "incremental PID speed";
-    if (motor !== ArmMotor.ARM_BASE &&
-        motor !== ArmMotor.SHOULDER &&
-        motor !== ArmMotor.ELBOW) {
-        op_mode_key = "PWM target";
-    }
     var request = {
         "type": "motor",
-        "motor": motor
+        "motor": motor,
+        "PWM target": power
     };
-    request[op_mode_key] = power;
     sendRequest(request);
 }
 
@@ -186,8 +181,8 @@ function sendRequest(request: any): void {
         JSON.stringify(request),
         () => {
         },
-        (error) => {
-            alert("Error sending command: " + error);
+        error => {
+            console.log("Error sending command: " + error);
         }
     );
 }
