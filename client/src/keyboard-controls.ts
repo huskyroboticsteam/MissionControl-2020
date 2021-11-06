@@ -21,9 +21,8 @@
  *  U/J: hand
  */
 
-import { ArmMotor } from "./arm-motor";
-import { RoverCommands } from "./rover-commands";
-
+import ArmMotor from "./arm-motor";
+import RoverCommands from "./rover-commands";
 
 /** Stores which keys are currently pressed. */
 const pressedKeys: Map<string, boolean> = new Map();

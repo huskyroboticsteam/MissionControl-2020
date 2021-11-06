@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ArmMotor } from "../../arm-motor";
+import ArmMotor from "../../arm-motor";
 import MotorSensitivitySlider from "./motor-sensitivity-slider";
 
 class MotorSliderList extends React.Component<{}, {}> {

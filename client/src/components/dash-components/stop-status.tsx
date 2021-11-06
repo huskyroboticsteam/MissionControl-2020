@@ -1,8 +1,8 @@
 import React from 'react';
-import { RoverCommands } from '../../rover-commands';
+import RoverCommands from '../../rover-commands';
 
 class StopStatus extends React.Component<{}, {}> {
-    
+
     render() {
         if (RoverCommands.isEStopped()) {
             return (

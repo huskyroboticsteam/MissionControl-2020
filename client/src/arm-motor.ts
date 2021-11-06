@@ -1,4 +1,7 @@
-export enum ArmMotor {
+/**
+ * Represents a type of arm motor on the rover.
+ */
+enum ArmMotor {
     ARM_BASE = "arm_base",
     SHOULDER = "shoulder",
     ELBOW = "elbow",
@@ -7,3 +10,5 @@ export enum ArmMotor {
     DIFF_RIGHT = "diffright",
     HAND = "hand"
 }
+
+export default ArmMotor;

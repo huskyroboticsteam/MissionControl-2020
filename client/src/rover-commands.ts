@@ -1,5 +1,5 @@
 import React from "react";
-import { ArmMotor } from "./arm-motor";
+import ArmMotor from "./arm-motor";
 import StopStatus from "./components/dash-components/stop-status";
 import makeRequest from "./utils/request/makeRequest";
 
@@ -25,7 +25,7 @@ function initializeMotorPowerMap(): Map<ArmMotor, number> {
 /**
  * Class containing static methods for sending commands to the rover.
  */
-export class RoverCommands {
+class RoverCommands {
     private static drivePower: [number, number] = [0.0, 0.0];
     private static motorPower: Map<ArmMotor, number> = initializeMotorPowerMap();
     private static eStop: boolean = false;
@@ -193,3 +193,5 @@ function sendRequest(request: any): void {
 }
 
 setInterval(update, UPDATE_PERIOD_MILIS);
+
+export default RoverCommands;

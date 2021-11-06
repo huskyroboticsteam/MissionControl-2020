@@ -1,7 +1,7 @@
 import * as React from "react";
 import Gamepad from "react-gamepad";
-import { ArmMotor } from "../arm-motor";
-import { RoverCommands } from "../rover-commands";
+import ArmMotor from "../arm-motor";
+import RoverCommands from "../rover-commands";
 
 const DRIVER_GAMEPAD_INDEX = 0;
 const ARM_GAMEPAD_INDEX = 1;
