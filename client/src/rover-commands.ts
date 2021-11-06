@@ -41,7 +41,14 @@ class RoverCommands {
      * @param leftRight power in the horizontal direction [-1.0, 1.0]
      */
     static setDrivePower(forwardBackward: number, leftRight: number): void {
-        if (Math.abs(this.drivePower[0] - forwardBackward) >= EPSILON ||
+        if (this.drivePower[0] === forwardBackward && this.drivePower[1] === leftRight) {
+            // No need to update.
+            return;
+        }
+        // Only update if there is a significant difference or we want to cut
+        // off power completely.
+        if ((leftRight === 0 && forwardBackward === 0) ||
+            Math.abs(this.drivePower[0] - forwardBackward) >= EPSILON ||
             Math.abs(this.drivePower[1] - leftRight) >= EPSILON) {
             sendDriveCommand(forwardBackward, leftRight);
         }
@@ -64,6 +71,12 @@ class RoverCommands {
      * @param power the power [-1.0, 1.0]
      */
     static setMotorPower(motor: ArmMotor, power: number): void {
+        if (this.motorPower.get(motor) === power) {
+            // No need to update.
+            return;
+        }
+        // Only update if there is a significant difference or we want to cut
+        // off power completely.
         if (power === 0 || Math.abs(this.motorPower.get(motor) - power) >= EPSILON) {
             sendMotorCommand(motor, power);
         }
