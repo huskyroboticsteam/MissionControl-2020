@@ -9,7 +9,8 @@ const ARM_GAMEPAD_INDEX = 1;
 let forwardBackward = 0.0;
 let leftRight = 0.0;
 
-class ControllerComponent extends React.Component<{}, {}> {
+class GamepadComponent extends React.Component<{}, {}> {
+
   connectHandler(gamepadIndex: number) {
     if (gamepadIndex === DRIVER_GAMEPAD_INDEX) {
       console.log("Driver connected!");
@@ -92,6 +93,7 @@ class ControllerComponent extends React.Component<{}, {}> {
       </div>
     );
   }
+
 }
 
-export default ControllerComponent;
+export default GamepadComponent;
