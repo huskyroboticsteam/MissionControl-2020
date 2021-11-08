@@ -1,5 +1,5 @@
 # Husky Robotics Mission Control
-Husky Robotics Mission Control Repo
+The app providing the user interface for operating the Husky Robotics rover remotely.
 
 ## Setup
 
@@ -44,7 +44,7 @@ Husky Robotics Mission Control Repo
 
 If you run into any issues, try deleting your `node_modules` directory and re-installing by following the setup instructions for your operating system.
 
-## Using the Simulator with MissionControl
+## Using the Simulator with Mission Control
 
 Follow the setup instructions for the [simulator](https://github.com/huskyroboticsteam/Simulator).
 
