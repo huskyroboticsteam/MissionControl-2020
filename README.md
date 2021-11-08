@@ -4,68 +4,49 @@ Husky Robotics Mission Control Repo
 ## Setup
 
 ### Linux
-
-On Ubuntu, to install the latest version of Node, try this:
-
-```
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt install nodejs
-```
-
-After cloning the repo onto your local machine, navigate to the client folder by finding where that folder is on your local device, and then use `cd filename` to get to the client folder and type `npm install` or `npm i` in the terminal. This should install the rest of the packages(NodeJS and ReactJS) required. Even if you already have NodeJS and ReactJS, still run `npm install` to get other files necessary.
-
-NodeJS: https://nodejs.org/en/
-
-ReactJS: https://reactjs.org/
+1. Open your terminal.
+1. Install Node.js:
+    ```
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+    sudo apt install nodejs
+    ```
+2. Clone the Mission Control repository to your local machine.
+4. Navigate to the `client` folder in the repository.
+5. Run `npm install` to install dependencies for the client.
+6. Navigate to the `server` directory in the repository.
+7. Run `npm install` to install dependencies for the server.
 
 ### Windows
-
-This repo requires the installation of NodeJS and ReactJS.
-
-Go to powershell/prefered command line interface and to install the latest version of Node, try this:
-
-```
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt install nodejs
-```
-
-After cloning the repo onto your local machine, navigate to the client folder by finding where that folder is on your local device, and then for use `cd filename` to get to the client folder and type `npm install` or `npm i` in the terminal. This should install the rest of the packages(NodeJS and ReactJS) required. Even if you already have NodeJS and ReactJS, still run `npm install` to get other files necessary.
-
-NodeJS: https://nodejs.org/en/
-
-ReactJS: https://reactjs.org/
+1. Install [Node.js for Windows](https://nodejs.org/en/download/).
+2. Open your terminal (e.g. PowerShell or Git Bash).
+3. Clone the Mission Control repository to your local machine.
+4. Navigate to the `client` folder in the repository.
+5. Run `npm install` to install dependencies for the client.
+6. Navigate to the `server` directory in the repository.
+7. Run `npm install` to install dependencies for the server.
 
 ### Mac
-
-This repo requires the installation of NodeJS and ReactJS.
-
-Go to terminal/iTerm and to install the latest version of Node, try this:
-
-```
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt install nodejs
-```
-
-After cloning the repo onto your local machine, navigate to the client folder by finding where that folder is on your local device, and then for mac use `cd filename` to get to the client folder and type `npm install` or `npm i` in the terminal. This should install the rest of the packages(NodeJS and ReactJS) required. Even if you already have NodeJS and ReactJS, still run `npm install` to get other files necessary.
-
-NodeJS: https://nodejs.org/en/
-
-ReactJS: https://reactjs.org/
-
+1. Install [Node.js for macOS](https://nodejs.org/en/download/).
+2. Open your terminal.
+3. Clone the Mission Control repository to your local machine.
+4. Navigate to the `client` folder in the repository.
+5. Run `npm install` to install dependencies for the client.
+6. Navigate to the `server` directory in the repository.
+7. Run `npm install` to install dependencies for the server.
 
 ## Running Mission Control
+1. Open your terminal.
+2. Navigate to the client directory.
+3. Run `npm start` to start the client.
+4. Open a new terminal.
+5. Navigate to the server directory.
+6. Run `npm start` to start the server.
 
-Recommended to run Client before Server
-
-Client: Navigate to the client directory and type into the terminal `npm start.` This should open up a new html page that is on the main menu.
-
-Server: Navigate to the server director and enter `npm start`. This will start the server in the terminal window.
-
-If you run into any issues, try cleaning your node directory and re-installing. Additionally, view a folder's `package.json` file to inspect the start commands.
+If you run into any issues, try deleting your `node_modules` directory and re-installing by following the setup instructions for your operating system.
 
 ## Using the Simulator with MissionControl
 
-Click [here] (https://github.com/huskyroboticsteam/Simulator) to go to the simulator repo and setup simulator
+Follow the setup instructions for the [simulator](https://github.com/huskyroboticsteam/Simulator).
 
 ## Architecture
 
@@ -77,14 +58,8 @@ In this repository are the server and client: the server is a NodeJS backend app
 Mission Control is broken down into components. The app uses redux for overall state management and automatically updates in response to incoming packets via the client's middleware.
 
 The components that are their own page are:
-
-Main
-
-Arm
-
-Camera
-
-Science
-
-Telemetry
-
+- Main
+- Arm
+- Camera
+- Science
+- Telemetry
