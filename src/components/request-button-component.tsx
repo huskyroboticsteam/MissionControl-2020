@@ -1,6 +1,5 @@
 import * as React from "react";
 import Button from "@material-ui/core/Button";
-import makeRequest from "./../utils/request/makeRequest.js";
 
 type RequestProps = {};
  class RequestButton extends React.Component<RequestProps> {
@@ -8,7 +7,7 @@ type RequestProps = {};
          super(props);
      }
     request() {
-    makeRequest;
+      // makeRequest;
     }
    render() {
      return (

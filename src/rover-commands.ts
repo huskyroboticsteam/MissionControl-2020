@@ -1,7 +1,7 @@
 import React from "react";
 import { ArmMotor } from "./arm-motor";
 import StopStatus from "./components/dash-components/stop-status";
-import makeRequest from "./utils/request/makeRequest";
+import send from "./socket";
 
 /**
  * Reference to the StopStatus component that is set by its render() function.
@@ -128,70 +128,45 @@ function update(): void {
  * Sends drive-related command packets to the server.
  */
 function sendDriveCommand(forwardBackward: number, leftRight: number): void {
-    const request = {
+    const data = {
         "type": "drive",
         "forward_backward": forwardBackward,
         "left_right": leftRight
     };
-    sendRequest(request);
+    send(JSON.stringify(data));
 }
 
 /**
  * Sends motor-related command packets to the server.
  */
 function sendMotorCommand(motor: ArmMotor, power: number): void {
-    // Right now PID control doesn't work well on the rover.
-    //var op_mode_key = "incremental PID speed";
-    var op_mode_key = "PWM target";
-    if (motor !== ArmMotor.ARM_BASE &&
-        motor !== ArmMotor.SHOULDER &&
-        motor !== ArmMotor.ELBOW) {
-        op_mode_key = "PWM target";
-    }
-    var request = {
+    const data = {
         "type": "motor",
-        "motor": motor
+        "motor": motor,
+        "PWM target": power
     };
-    request[op_mode_key] = power;
-    sendRequest(request);
+    send(JSON.stringify(data));
 }
 
 /**
  * Sends an E-stop packet to the server.
  */
 function sendEStopCommand(eStop: boolean) {
-    const request = {
+    const data = {
         "type": "estop",
         "release": !eStop
     };
-    sendRequest(request);
+    send(JSON.stringify(data));
 }
 
 /**
  * Sends a command to toggle autonomous mode on the rover.
  */
 function sendAutonomousCommand() {
-    const request = {
+    const data = {
         "type": "autonomous"
     };
-    sendRequest(request);
-}
-
-/**
- * Sends the given request to the server.
- * 
- * @param request the request to send
- */
-function sendRequest(request: any): void {
-    makeRequest(
-        "/",
-        JSON.stringify(request),
-        () => {
-        },
-        (error) => {
-            alert("Error sending command: " + error);
-        }
-    );
+    send(JSON.stringify(data));
 }
 
 setInterval(update, UPDATE_PERIOD_MILIS);
