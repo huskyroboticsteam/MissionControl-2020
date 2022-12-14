@@ -15,7 +15,7 @@
     "dgram": "^1.0.1",
     "dotenv": "^8.1.0",
     "envalid": "^5.0.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-async-errors": "^3.1.1",
     "express-ws": "^4.0.0",
     "fs": "^0.0.1-security",
